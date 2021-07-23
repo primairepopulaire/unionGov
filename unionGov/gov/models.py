@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils.crypto import get_random_string
 
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.core.exceptions import ValidationError
+
 def get_new_ref():
     """ Generate a new config ref """
     return get_random_string(length=32)
@@ -41,3 +45,26 @@ class Config(models.Model):
 
     def __str__(self) -> str:
         return "Config {}: {} pour {}".format(self.config_ref, self.candidate, self.position)
+
+@receiver(pre_save, sender=Config)
+def check_config(sender, instance, **kwargs):
+    """ Returns True if both Position and Candidate are new, for this configRef 
+    
+    If not True raises a custom exception
+    """
+    current_config_ref = instance.config_ref
+    current_candidate = instance.candidate
+    current_position = instance.position
+
+    # Get existing Config rows
+    existing_rows = Config.objects.filter(config_ref=current_config_ref)
+
+    # Check distinct from values in instance
+    for row in existing_rows:
+        if (row.candidate.id == current_candidate.id):
+            raise ValidationError("Duplicate candidate in Config")
+
+        if (row.position.id == current_position.id):
+            raise ValidationError("Duplicate position in Config")
+
+    return True

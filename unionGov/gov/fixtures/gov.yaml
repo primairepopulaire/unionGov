@@ -1,0 +1,72 @@
+-   model: gov.configref
+    pk: 1
+    fields:
+        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUa
+        save_date: 2021-07-23 13:09:35+00:00
+        user: null
+-   model: gov.candidate
+    pk: 3
+    fields:
+        first_name: Pierre
+        last_name: Larrouturou
+        image_url: img/larrouturou.png
+-   model: gov.candidate
+    pk: 4
+    fields:
+        first_name: Jean-Luc
+        last_name: Mélanchon
+        image_url: img/melanchon_ORodv9e.jpg
+-   model: gov.candidate
+    pk: 5
+    fields:
+        first_name: Christiane
+        last_name: Taubira
+        image_url: img/taubira_jwYRQ5q.png
+-   model: gov.candidate
+    pk: 6
+    fields:
+        first_name: Éric
+        last_name: Piolle
+        image_url: img/piolle.png
+-   model: gov.position
+    pk: 1
+    fields:
+        position_name: Président.e
+-   model: gov.position
+    pk: 2
+    fields:
+        position_name: Premier.ère Ministre
+-   model: gov.position
+    pk: 3
+    fields:
+        position_name: Affaires Étrangères
+-   model: gov.position
+    pk: 4
+    fields:
+        position_name: Justice
+-   model: gov.position
+    pk: 5
+    fields:
+        position_name: Transition Écologique
+-   model: gov.position
+    pk: 6
+    fields:
+        position_name: Éducation Nationale
+-   model: gov.config
+    pk: 1
+    fields:
+        config_ref: 1
+        position: 1
+        candidate: 5
+-   model: gov.config
+    pk: 2
+    fields:
+        config_ref: 1
+        position: 2
+        candidate: 3
+-   model: gov.config
+    pk: 4
+    fields:
+        config_ref: 1
+        position: 3
+        candidate: 4
