@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    {% if object_list %}
+        <div class="container">
+        <div class="row g-2">
+        {% for candidate in object_list %}
+            <div class="col-6">
+                <a href="/gov/perso/{{ candidate.id }}/">
+                    <div>
+                        <div class="text-center">
+                            <img class="img-thumbnail" src="{% static candidate.image_url %}" alt="profil de {{ candidate.last_name }}"/>
+                        </div>
+                        <div>{{ candidate.first_name }} {{ candidate.last_name }}</div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No candidates are available.</p>
+    {% endif %}
+</div></div>
+{% endblock %}

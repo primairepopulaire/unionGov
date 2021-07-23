@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    {% if position_list %}
+    {% if object_list %}
         <ul>
-        {% for position in position_list %}
+        {% for position in object_list %}
             <li>
                 <div>{{ position.position_name }}</div>
 
-                <div>Choisir titulaire</div>
+                <div><a href="/gov/perso/3">Choisir titulaire</a></div>
             </li>
         {% endfor %}
         </ul>
