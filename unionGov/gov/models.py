@@ -23,7 +23,7 @@ class ConfigRef(models.Model):
 class Candidate(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    image_url = models.ImageField()
+    image_url = models.ImageField(upload_to='img')
 
     def __str__(self) -> str:
         return "{} {}".format(self.first_name, self.last_name)
