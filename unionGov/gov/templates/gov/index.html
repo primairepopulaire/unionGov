@@ -1,17 +1,23 @@
+{% extends "base.html" %}
 {% load static %}
-{% if candidate_list %}
-    <ul>
+{% block content %}
+    {% if candidate_list %}
+        <div class="container">
+        <div class="row g-2">
         {% for candidate in candidate_list %}
-        <li><a href="/gov/{{ candidate.id }}/">
-            <div>
-                <div>
-                    <img src="{% static candidate.image_url %}" alt="profil de {{ candidate.last_name }}"/>
-                </div>
-                <div>{{ candidate.first_name }} {{ candidate.last_name }}</div>
+            <div class="col-6">
+                <a href="/gov/{{ candidate.id }}/">
+                    <div>
+                        <div class="text-center">
+                            <img class="img-thumbnail" src="{% static candidate.image_url %}" alt="profil de {{ candidate.last_name }}"/>
+                        </div>
+                        <div>{{ candidate.first_name }} {{ candidate.last_name }}</div>
+                    </div>
+                </a>
             </div>
-        </a></li>
         {% endfor %}
-{% else %}
-    <p>No candidates are available.</p>
-{% endif %}
-    </ul>
+    {% else %}
+        <p>No candidates are available.</p>
+    {% endif %}
+</div></div>
+{% endblock %}

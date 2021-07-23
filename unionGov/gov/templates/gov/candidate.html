@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if candidate %}
+            <div>
+                <div><h1>{{ candidate.first_name }} {{ candidate.last_name }}</h1></div>
+                <div>
+                    <img src="{% static candidate.image_url %}" alt="profil de {{ candidate.last_name }}"/>
+                </div>
+            </div>
+{% endif %}
+{% endblock %}
