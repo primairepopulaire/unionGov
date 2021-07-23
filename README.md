@@ -1,2 +1,2 @@
-# ideal-gov
-A website to let people choose/vote for the best government
+# union-gov
+A website to let people choose/vote for their preferred union government
