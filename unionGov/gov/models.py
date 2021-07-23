@@ -34,7 +34,7 @@ class Position(models.Model):
     def __str__(self) -> str:
         return self.position_name
 
-class Configs(models.Model):
+class Config(models.Model):
     config_ref = models.ForeignKey(ConfigRef, on_delete=models.PROTECT)
     position = models.ForeignKey(Position, on_delete=models.PROTECT)
     candidate = models.ForeignKey(Candidate, on_delete=models.PROTECT)
