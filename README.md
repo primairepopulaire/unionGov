@@ -17,7 +17,7 @@ Move to the folder `union-gov` with `cd union-gov` and:
 Now move to the folder `unionGov` with `cd unionGov` and:
 * generate the database (Sqlite3) with `python manage.py migrate`,
 * populate the database with `python manage.py loaddata --app gov gov` (which recovers the data from the `gov/fixtures/gov.yaml` file),
-* create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin section,
+* create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin view,
 * see the [section below](#running-the-backend) to see how to run the backend. 
 
 NB: 
