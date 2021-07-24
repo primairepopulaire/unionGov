@@ -130,3 +130,6 @@ dmypy.json
 
 # Sqlite images
 img/
+
+# Node modules
+node_modules/
