@@ -27,8 +27,8 @@ PATH = '/img'
 ROOT = settings.BASE_DIR / 'img/'
 
 router = routers.DefaultRouter()
-router.register(r'positions', views.PositionListView, 'positions')
-router.register(r'candidates', views.CandidateListView, 'candidates')
+router.register(r'positions', views.PositionAPIView, 'positions')
+router.register(r'candidates', views.CandidateAPIView, 'candidates')
 
 urlpatterns = [
     path('', include('gov.urls')),
