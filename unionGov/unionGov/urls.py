@@ -23,6 +23,7 @@ PATH = '/img'
 ROOT = settings.BASE_DIR / 'img/'
 
 urlpatterns = [
+    path('', include('gov.urls')),
     path('gov/', include('gov.urls')),
     path('admin/', admin.site.urls),
 ] + static(PATH, document_root=ROOT)

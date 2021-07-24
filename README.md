@@ -8,8 +8,10 @@ More details about the context (in French): see [section "Contexte"](#contexte) 
 In order to run this repository,
 
 * clone the repository,
-* make sure `pipenv` is installed in your Python3 (if not: `python -m pip install pipenv` should work),
-* move to the folder (`cd union-gov`) and install from Pipfile: `pipenv install`,
+* make sure `pipenv` is installed in your Python3 (if not: `python -m pip install pipenv` should work).
+
+Move to the folder `union-gov` with `cd union-gov` and:
+* install from Pipfile: `pipenv install`,
 * activate the local environnement with `pipenv shell`,
 * generate the database (Sqlite3) with `python manage.py migrate`,
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin section,
@@ -30,7 +32,7 @@ python manage.py runserver
 The backend should become available in two parts:
 
 * the admin (management of entities in the database) at `http://localhost:8000/admin`
-* access to the website itself at `http://localhost:8000/gov`
+* access to the website itself at `http://localhost:8000/gov` 
 
 # Contexte
 
