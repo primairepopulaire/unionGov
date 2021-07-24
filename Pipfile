@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 Pillow = "*" 
+pyyaml = "~=5.4"
 
 [dev-packages]
 

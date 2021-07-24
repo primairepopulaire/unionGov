@@ -12,14 +12,18 @@ In order to run this repository,
 
 Move to the folder `union-gov` with `cd union-gov` and:
 * install from Pipfile: `pipenv install`,
-* activate the local environnement with `pipenv shell`,
+* activate the local environnement with `pipenv shell`.
 
 Now move to the folder `unionGov` with `cd unionGov` and:
 * generate the database (Sqlite3) with `python manage.py migrate`,
+* populate the database with `python manage.py loaddata --app gov gov` (which recovers the data from the `gov/fixtures/gov.yaml` file),
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin section,
 * see the [section below](#running-the-backend) to see how to run the backend. 
 
-NB: in the current version, we use sqlite3 as database. In a possible production version, we would use a more permanent database.
+NB: 
+* in the current version, we use sqlite3 as database. In a possible production version, we would use a more permanent database.
+* if running the system for the first time, the candidates will not have proper pictures. You can add them using the admin view and this [reference document](https://docs.google.com/spreadsheets/d/1M__XSj-t5aVmp-XiJZNYz7GMJfZxu_GumKynP3_k_iI/edit?usp=sharing).
+
 ## Running the backend
 
 From root folder, if need be: activate virtual env with:
@@ -33,8 +37,8 @@ python manage.py runserver
 ```
 The backend should become available in two parts:
 
-* the admin (management of entities in the database) at `http://localhost:8000/admin`
-* access to the website itself at `http://localhost:8000/gov` 
+* the admin view (management of entities in the database) at `http://localhost:8000/admin`,
+* access to the main view at `http://localhost:8000/gov`.
 
 # Contexte
 
