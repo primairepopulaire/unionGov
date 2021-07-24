@@ -13,6 +13,8 @@ In order to run this repository,
 Move to the folder `union-gov` with `cd union-gov` and:
 * install from Pipfile: `pipenv install`,
 * activate the local environnement with `pipenv shell`,
+
+Now move to the folder `unionGov` with `cd unionGov` and:
 * generate the database (Sqlite3) with `python manage.py migrate`,
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin section,
 * see the [section below](#running-the-backend) to see how to run the backend. 
