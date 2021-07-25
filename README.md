@@ -86,7 +86,7 @@ Et sont choix serait gardé (idéalement un lien web), afin de pouvoir dans un d
     - Voir les candidats (voir Candidats, ci-dessous)
     - Faire mon gouvernement ! (voir Gouvernement, ci-dessous)
 2. Candidats : 
-    - Présentation des candidats
+    - Présentation des candidats (uniquement liste des noms et dessin des visages, crédits: illustratrice : Marie Casaÿs)
     - Lien vers le site de la primaire populaire pour plus de détails
 3. Gouvernement
     - Liste des postes à pourvoir (voir listes dans "Références")
