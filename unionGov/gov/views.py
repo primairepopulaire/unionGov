@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 from django.views.generic.list import ListView
 
 from rest_framework import viewsets
@@ -33,16 +32,15 @@ class PositionListView(ListView):
     model = Position
     paginate_by = 20
 
-from .models import Candidate, Position
-from .serializers import CandidateSerializer, PositionSerializer
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 
-class PositionListView(viewsets.ModelViewSet):
-    serializer_class = PositionSerializer
-    queryset = Position.objects.all()
+class CandidateListView(ListView):
+    model = Candidate
+    paginate_by = 20
 
-class CandidateListView(viewsets.ModelViewSet):
-    serializer_class = CandidateSerializer
-    queryset = Candidate.objects.all()
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 
 
 def candidate(request, candidate_id):
