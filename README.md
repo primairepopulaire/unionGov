@@ -35,10 +35,11 @@ Then from `unionGov` folder:
 ```
 python manage.py runserver
 ```
-The backend should become available in two parts:
+The backend is available in three parts:
 
 * the admin view (management of entities in the database) at `http://localhost:8000/admin`,
-* access to the main view at `http://localhost:8000/gov`.
+* access to the "main" view at `http://localhost:8000/gov`,
+* API view at `http://localhost:8000/api` (more details in the view itself).
 
 # Contexte
 
@@ -94,6 +95,8 @@ Et sont choix serait gardé (idéalement un lien web), afin de pouvoir dans un d
     - En bas, deux boutons :
         - Sauvegarder (qui enregistre la config dans la DB)
         - Partager (pour partager sur les réseaux sociaux...)
+
+Sur le point 3, ce sera peut-être plus ergonomique de n'avoir qu'un seul bouton (qui fait à la fois la sauvegarde et enclenche la séquence pour partager...). À la fin de la séquence de partage, doit-il être encore possible de modifier le gouvernement ? Peut-être pas... Au quel cas, si on fait des modifs à une config existante, ça crée automatiquement une nouvelle config !
 
 Une proposition pour l'ergonomie :
 
@@ -162,7 +165,8 @@ Tables :
 
 - À quel point est-il possible de partager sans que l'utilisateur soit enregistré ? Par exemple : partager l'URL en incluant la configId renverrait directement sur le gouvernement enregistré...
 - Méthode de déploiement de l'application ?
-- Possibilité d'utiliser un bouton "nouveau gouvernement" pour créer une nouvelle config_ref.
+- Possibilité d'utiliser un bouton "nouveau gouvernement" pour créer une nouvelle config_ref ? Sinon, possible de créer une nouvelle config_ref dès qu'un nouvel utilisateur arrive sur le site ?
+- Système à utiliser pour partager le gouvernement sur les réseaux sociaux : existe-t-il du code facilement disponible à ce niveau là ? Est-il nécessaire que l'utilisateur soit enregistré pour le faire ?
 
 ## Références
 
