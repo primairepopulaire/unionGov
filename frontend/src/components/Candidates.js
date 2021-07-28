@@ -10,20 +10,9 @@ class Candidates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      candidateList: []
+      candidateList: this.props.candidateList
     };
   }
-
-  componentDidMount() {
-    this.refreshList();
-  }
-
-  refreshList = () => {
-    axios
-      .get("/api/candidates/")
-      .then((res) => this.setState({ candidateList: res.data }))
-      .catch((err) => console.log(err));
-  };
 
   renderItems = () => {
     const newItems = this.state.candidateList;

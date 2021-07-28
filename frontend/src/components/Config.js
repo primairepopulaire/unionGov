@@ -7,44 +7,32 @@ import "./Candidates.css";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
-var options = [
-  { value: "C. Taubira", label: "Christiane Taubira"},
-  { value: "J.-L. Mélenchon", label: "Jean-Luc Mélenchon"},
-  { value: "É. Piolle", label: "Éric Piolle" }
-]
-
 class Candidates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      positionList: [],
-      candidateList: []
+      positionList: props.positionList,
+      candidateList: props.candidateList
     };
   }
 
-
-
-  componentDidMount() {
-    this.refreshPositionList();
-    //this.refreshCandidateList();
+  formatCandidateOption = (candidate) => {
+    return {
+      value: candidate.id,
+      label: `${candidate.first_name} ${candidate.last_name}`,
+      disabled: (candidate.id %2 === 0)? true: false
+    }
   }
 
-  refreshPositionList = () => {
-    axios
-      .get("/api/positions/")
-      .then((res) => this.setState({ positionList: res.data }))
-      .catch((err) => console.log(err));
-  };
-
-  refreshCandidateList = () => {
-    axios
-      .get("/api/candidates/")
-      .then((res) => this.setState({ candidateList: res.data }))
-      .catch((err) => console.log(err));
-  };
+  change = (i) => { return (event) => {
+      console.log(`From position ${i}`, event);
+    }
+  }
 
   renderItems = () => {
     const newItems = this.state.positionList;
+    const options = this.state.candidateList.map(
+      item => this.formatCandidateOption(item));
 
     return newItems.map((item) => (
       <li
@@ -52,13 +40,15 @@ class Candidates extends Component {
         className="list-group-item d-flex justify-content-between align-items-center"
       >
         <span>
-          <p>{item.position_name}</p>
-          <p>
+          <span>{item.position_name}</span>
+          <span>
             <Select 
               className="candidateSelector" 
               options={options} 
+              onChange={this.change(item.id)}
+              isOptionDisabled={(option) => option.disabled}
             />
-          </p>
+          </span>
         </span>
         <span>
           <img 

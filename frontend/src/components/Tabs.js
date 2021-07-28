@@ -24,7 +24,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'div'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -51,10 +51,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthTabs() {
+export default function FullWidthTabs(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const candidateList = props.candidateList;
+  const positionList = props.positionList;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -74,9 +76,9 @@ export default function FullWidthTabs() {
           textColor="primary"
           variant="fullWidth"
         >
-          <Tab label="Mon gouvernement" {...a11yProps(0)} />
-          <Tab label="Personnalités" {...a11yProps(1)} />
-          <Tab label="À propos" {...a11yProps(2)} />
+          <Tab label="À propos" {...a11yProps(0)} />
+          <Tab label="Mon gouvernement" {...a11yProps(1)} />
+          <Tab label="Personnalités" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -85,16 +87,19 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Config />
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Candidates />
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
           <p>Ce site est un projet parallèle à la <a href = "https://primairepopulaire.fr/">Primaire Populaire</a>.
           Sur le site principal vous pouvez voir la démarche du projet en détail.</p>
 
           <p><a href="http://mariecasays.com/">Marie Casaÿs</a> a réalisé les illustrations des candidats.</p>
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <Config
+            candidateList={candidateList}
+            positionList = {positionList}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <Candidates candidateList={candidateList}/>
         </TabPanel>
       </SwipeableViews>
     </div>
