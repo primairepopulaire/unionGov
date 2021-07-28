@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import Position from './Position';
+import Candidates from './Candidates';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -87,7 +87,7 @@ export default function FullWidthTabs() {
           Item One
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <Position />
+          <Candidates />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           <p>Ce site est un projet parallèle à la <a href = "https://primairepopulaire.fr/">Primaire Populaire</a>.

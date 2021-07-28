@@ -2,32 +2,76 @@
     pk: 1
     fields:
         config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUa
-        save_date: 2021-07-23 13:09:35+00:00
+        save_date: 2021-07-20 13:09:35+00:00
+        user: null
+-   model: gov.configref
+    pk: 2
+    fields:
+        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUt
+        save_date: null
+        user: null
+-   model: gov.configref
+    pk: 3
+    fields:
+        config_ref: DCDQZ28ZyohLmDQb38NOjpGo35H7ixcC
+        save_date: null
         user: null
 -   model: gov.candidate
     pk: 3
     fields:
         first_name: Pierre
         last_name: Larrouturou
-        image_url: img/larrouturou.png
+        image_file: img/larrouturou.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/8e031d3d4f56acb59944010e4597c885c026dfd914245f955242a55f3e89f3ea.png
 -   model: gov.candidate
     pk: 4
     fields:
         first_name: Jean-Luc
         last_name: Mélanchon
-        image_url: img/melanchon_ORodv9e.jpg
+        image_file: img/melanchon_ORodv9e.jpg
+        image_url: https://www.parrainages-primairepopulaire.fr/file/a6ef8508ac49529fe69ac251ff9d58c39751b690450a17605ca6daeded4a0346.png
 -   model: gov.candidate
     pk: 5
     fields:
         first_name: Christiane
         last_name: Taubira
-        image_url: img/taubira_jwYRQ5q.png
+        image_file: img/taubira_jwYRQ5q.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/ae4f6d77be9959cf29c92e3381032df7cf3eeea5c75929736799fd7e45b49ac1.png
 -   model: gov.candidate
     pk: 6
     fields:
         first_name: Éric
         last_name: Piolle
-        image_url: img/piolle.png
+        image_file: img/piolle.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/258e3a0cf1d89f2ae1992227d303a69e122ee716a21861b39f62f26dd9bca54d.png
+-   model: gov.candidate
+    pk: 7
+    fields:
+        first_name: Sandrine
+        last_name: Rousseau
+        image_file: img/rousseau.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/df641980ef61e3f30c61be04b59d52d15f9293c97e223d46ce43ea545af4a05a.png
+-   model: gov.candidate
+    pk: 8
+    fields:
+        first_name: Anne
+        last_name: Hidalgo
+        image_file: img/hidalgo.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/c4dad2df5ba3e8cb904f25a5cb67ed1304aee84e06bc7c9457676db50f0fbbb4.png
+-   model: gov.candidate
+    pk: 9
+    fields:
+        first_name: François
+        last_name: Ruffin
+        image_file: img/ruffin.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/bba8d31bf9ab8d308f35625f13fbf83fb240118e0b20227f7a9c961672660441.png
+-   model: gov.candidate
+    pk: 10
+    fields:
+        first_name: Gaël
+        last_name: Giraud
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/92d244fa0a38551d6bcce4a9ee5b16c5cdb93b1dbf8229a8c69816de7390fb8c.png
 -   model: gov.position
     pk: 1
     fields:
@@ -52,6 +96,26 @@
     pk: 6
     fields:
         position_name: Éducation Nationale
+-   model: gov.position
+    pk: 8
+    fields:
+        position_name: Santé
+-   model: gov.position
+    pk: 9
+    fields:
+        position_name: Culture
+-   model: gov.position
+    pk: 11
+    fields:
+        position_name: Ens. Sup et Recherche
+-   model: gov.position
+    pk: 14
+    fields:
+        position_name: Agriculture
+-   model: gov.position
+    pk: 15
+    fields:
+        position_name: Économie et Finances
 -   model: gov.config
     pk: 1
     fields:
