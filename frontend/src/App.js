@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      configRef: 2,
+      configRef: 1,
       positionList: [],
       candidateList: [],
       configList: [],
@@ -146,8 +146,6 @@ class App extends Component {
     if (configToUpdate.candidate.id !== candidateId) {
       configToUpdate.candidate=candidateId
 
-      console.log("configToUpdate: ", configToUpdate);
-
       if (candidateId === 0) {
         // Delete config
         axios
@@ -164,8 +162,14 @@ class App extends Component {
         throw new Error(`Unknown candidate id=${candidateId}`) 
       }
 
+      const configData = {
+        config_ref: this.state.configRef,
+        position: positionId,
+        candidate: candidateId
+      };
+      
       axios
-        .put(`/api/configs/${configToUpdate.id}`, configToUpdate)
+        .put(`/api/configs/${configToUpdate.id}/`, configData)
         .then((res) => this.refreshData())
         .catch((err) => console.log(err));
     }

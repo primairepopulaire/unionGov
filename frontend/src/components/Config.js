@@ -8,18 +8,10 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 class Candidates extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      govList: props.govList,
-      selectorList: props.selectorList,
-      updateConfig: props.updateConfig
-    };
-  }
-
+  
   renderItems = () => {
-    const newItems = this.state.govList;
-    const options = this.state.selectorList;
+    const newItems = this.props.govList;
+    const options = this.props.selectorList;
 
     return newItems.map((item) => (
       <li
@@ -32,7 +24,7 @@ class Candidates extends Component {
             <Select 
               className="candidateSelector" 
               options={options} 
-              onChange={(event) => this.state.updateConfig(item.id, event.value)}
+              onChange={(event) => {this.props.updateConfig(item.id, event.value)}}
               isOptionDisabled={(option) => option.disabled}
               defaultValue={options.filter((option) => (option.value===item.candidate_id))[0]}
             />
