@@ -55,8 +55,9 @@ export default function FullWidthTabs(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const govList = props.govList;
   const candidateList = props.candidateList;
-  const positionList = props.positionList;
+  const selectorList = props.selectorList;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -94,8 +95,9 @@ export default function FullWidthTabs(props) {
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <Config
-            candidateList={candidateList}
-            positionList = {positionList}
+            selectorList={selectorList}
+            govList = {govList}
+            updateConfig={props.updateConfig}
           />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>

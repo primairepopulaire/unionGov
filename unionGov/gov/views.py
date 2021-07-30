@@ -6,7 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Candidate, Config, ConfigRef, Position, User
 from .serializers import CandidateSerializer, ConfigSerializer, ConfigRefSerializer 
-from .serializers import PositionSerializer, UserSerializer
+from .serializers import PositionSerializer, UserSerializer, RichConfigSerializer
 
 
 class CandidateAPIView(viewsets.ModelViewSet):
@@ -19,6 +19,12 @@ class ConfigAPIView(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['config_ref']
 
+class RichConfigAPIView(viewsets.ModelViewSet):
+    queryset = Config.objects.all()
+    serializer_class = RichConfigSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['config_ref']
+
 class ConfigRefAPIView(viewsets.ModelViewSet):
     serializer_class = ConfigRefSerializer
     queryset = ConfigRef.objects.all()
@@ -28,6 +34,8 @@ class ConfigRefAPIView(viewsets.ModelViewSet):
 class PositionAPIView(viewsets.ModelViewSet):
     serializer_class = PositionSerializer
     queryset = Position.objects.all()
+
+
 
 class UserAPIView(viewsets.ModelViewSet):
     serializer_class = UserSerializer

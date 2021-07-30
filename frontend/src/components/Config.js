@@ -11,28 +11,15 @@ class Candidates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      positionList: props.positionList,
-      candidateList: props.candidateList
+      govList: props.govList,
+      selectorList: props.selectorList,
+      updateConfig: props.updateConfig
     };
   }
 
-  formatCandidateOption = (candidate) => {
-    return {
-      value: candidate.id,
-      label: `${candidate.first_name} ${candidate.last_name}`,
-      disabled: (candidate.id %2 === 0)? true: false
-    }
-  }
-
-  change = (i) => { return (event) => {
-      console.log(`From position ${i}`, event);
-    }
-  }
-
   renderItems = () => {
-    const newItems = this.state.positionList;
-    const options = this.state.candidateList.map(
-      item => this.formatCandidateOption(item));
+    const newItems = this.state.govList;
+    const options = this.state.selectorList;
 
     return newItems.map((item) => (
       <li
@@ -45,15 +32,16 @@ class Candidates extends Component {
             <Select 
               className="candidateSelector" 
               options={options} 
-              onChange={this.change(item.id)}
+              onChange={(event) => this.state.updateConfig(item.id, event.value)}
               isOptionDisabled={(option) => option.disabled}
+              defaultValue={options.filter((option) => (option.value===item.candidate_id))[0]}
             />
           </span>
         </span>
         <span>
           <img 
             className="candidatePicture" 
-            src="https://www.parrainages-primairepopulaire.fr/file/primaire_candidat_mystere.png" 
+            src={item.image_url} 
             alt={item.position_name}
           ></img>
         </span>
