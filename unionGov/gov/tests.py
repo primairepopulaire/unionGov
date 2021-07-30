@@ -68,3 +68,18 @@ class ConfigModelTests(TestCase):
         # Check suitable number of rows in config
         list_conf = Config.objects.filter(config_ref=new_conf_ref)
         self.assertEqual(len(list_conf), 1)
+
+    def test_updating_value(self):
+        """ Updating an existing value should be possible """
+        current_conf_ref = ConfigRef.objects.get(pk=1)
+        initial_list_length = len(Config.objects.filter(config_ref=current_conf_ref))
+
+        initial_config = Config.objects.get(pk=1)
+        piolle = Candidate.objects.get(pk=6)
+        initial_config.candidate = piolle
+
+        initial_config.save()
+
+        # Check number of rows did not change
+        new_list_length = len(Config.objects.filter(config_ref=current_conf_ref))
+        self.assertEqual(new_list_length, initial_list_length)

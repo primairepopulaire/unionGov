@@ -53,6 +53,7 @@ def check_config(sender, instance, **kwargs):
     
     If not True raises a custom exception
     """
+    current_id = instance.id
     current_config_ref = instance.config_ref
     current_candidate = instance.candidate
     current_position = instance.position
@@ -63,9 +64,11 @@ def check_config(sender, instance, **kwargs):
     # Check distinct from values in instance
     for row in existing_rows:
         if (row.candidate.id == current_candidate.id):
-            raise ValidationError("Duplicate candidate in Config")
+            if (row.id != current_id):
+                raise ValidationError("Duplicate candidate in Config")
 
         if (row.position.id == current_position.id):
-            raise ValidationError("Duplicate position in Config")
+            if (row.id != current_id):
+                raise ValidationError("Duplicate position in Config")
 
     return True
