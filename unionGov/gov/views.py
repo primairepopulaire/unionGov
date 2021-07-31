@@ -33,7 +33,7 @@ class ConfigRefAPIView(viewsets.ModelViewSet):
 
 class PositionAPIView(viewsets.ModelViewSet):
     serializer_class = PositionSerializer
-    queryset = Position.objects.all()
+    queryset = Position.objects.all().order_by('id')
 
 
 

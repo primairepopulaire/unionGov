@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FullWidthTabs from "./components/Tabs";
 
+import arrayShuffle from 'array-shuffle';
 
 // Axios for link to backend
 import axios from "axios";
@@ -38,7 +39,7 @@ class App extends Component {
       .then(axios.spread((positionRes, candidateRes, configRes) => {
         this.setState({
           positionList: positionRes.data,
-          candidateList: candidateRes.data,
+          candidateList: arrayShuffle(candidateRes.data),
           configList: configRes.data
         });
         console.log("Got data...");
