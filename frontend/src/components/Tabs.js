@@ -11,6 +11,8 @@ import Box from '@material-ui/core/Box';
 import Candidates from './Candidates';
 import Config from './Config';
 
+import "../App.css"
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -88,10 +90,12 @@ export default function FullWidthTabs(props) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <p>Ce site est un projet parallèle à la <a href = "https://primairepopulaire.fr/">Primaire Populaire</a>.
-          Sur le site principal vous pouvez voir la démarche du projet en détail.</p>
+          <div className="about">
+            <p>Ce site est un projet parallèle à la <a href = "https://primairepopulaire.fr/">Primaire Populaire</a>.
+            Sur le site principal vous pouvez voir la démarche du projet en détail.</p>
 
-          <p><a href="http://mariecasays.com/">Marie Casaÿs</a> a réalisé les illustrations des candidats.</p>
+            <p><a href="http://mariecasays.com/">Marie Casaÿs</a> a réalisé les illustrations des candidats.</p>
+          </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <Config
