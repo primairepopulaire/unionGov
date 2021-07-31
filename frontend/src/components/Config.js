@@ -27,6 +27,7 @@ class Candidates extends Component {
               onChange={(event) => {this.props.updateConfig(item.id, event.value)}}
               isOptionDisabled={(option) => option.disabled}
               defaultValue={options.filter((option) => (option.value===item.candidate_id))[0]}
+              isSearchable={true}
             />
           </span>
         </span>

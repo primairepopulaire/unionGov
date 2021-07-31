@@ -7,6 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Fab from '@material-ui/core/Fab';
+import { GrShareOption } from 'react-icons/gr';
 
 import Candidates from './Candidates';
 import Config from './Config';
@@ -51,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     //width: 500,
   },
+  fab: {
+    position: 'fixed',
+    top: theme.spacing(8),
+    right: theme.spacing(2)
+  }
 }));
 
 export default function FullWidthTabs(props) {
@@ -108,6 +115,13 @@ export default function FullWidthTabs(props) {
           <Candidates candidateList={candidateList}/>
         </TabPanel>
       </SwipeableViews>
+      <Fab 
+        aria-label='Share' 
+        className={classes.fab}
+        color="inherit"
+      >
+        <GrShareOption/>
+      </Fab>
     </div>
   );
 }
