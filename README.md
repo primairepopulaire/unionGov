@@ -13,7 +13,7 @@ In order to run this repository,
 ### Backend installation
 
 Move to the folder `union-gov` with `cd union-gov` and:
-* install from Pipfile: `pipenv install`,
+* install dependancies from Pipfile: `pipenv install`,
 * activate the local environnement with `pipenv shell`.
 
 Now move to the folder `unionGov` with `cd unionGov` and:
