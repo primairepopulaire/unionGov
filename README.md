@@ -3,12 +3,14 @@ A website to let people choose/vote for their preferred union government.
 
 More details about the context (in French): see [section "Contexte"](#contexte) below.
 
-## Configuration
+## Configuration and installation
 
 In order to run this repository,
 
 * clone the repository,
 * make sure `pipenv` is installed in your Python3 (if not: `python -m pip install pipenv` should work).
+
+### Backend installation
 
 Move to the folder `union-gov` with `cd union-gov` and:
 * install from Pipfile: `pipenv install`,
@@ -16,22 +18,36 @@ Move to the folder `union-gov` with `cd union-gov` and:
 
 Now move to the folder `unionGov` with `cd unionGov` and:
 * generate the database (Sqlite3) with `python manage.py migrate`,
-* populate the database with `python manage.py loaddata --app gov gov` (which recovers the data from the `gov/fixtures/gov.yaml` file),
+* populate the database with `python manage.py loaddata --app gov default` (which recovers the data from the `gov/fixtures/default.yaml` file),
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin view,
 * see the [section below](#running-the-backend) to see how to run the backend. 
 
-NB: 
-* in the current version, we use sqlite3 as database. In a possible production version, we would use a more permanent database.
-* if running the system for the first time, the candidates will not have proper pictures. You can add them using the admin view and this [reference document](https://docs.google.com/spreadsheets/d/1M__XSj-t5aVmp-XiJZNYz7GMJfZxu_GumKynP3_k_iI/edit?usp=sharing).
+### Frontend installation
 
-## Running the backend
+Here we assume that Node.js and `yarn` are already available on the computer. For more details see e.g. [this tutorial](https://www.digitalocean.com/community/tutorial_series/how-to-install-node-js-and-create-a-local-development-environment) and the [yarn installation instructions](https://classic.yarnpkg.com/en/docs/install#debian-stable).
+
+From the folder `union-gov/frontend`, 
+* install the required packages with 
+```
+yarn install
+```
+
+For more details, see `README.md` in the folder `frontend`.
+
+### Additional notes
+
+* in the current version, we use sqlite3 as database. In a possible production version, we would use a more permanent database.
+
+## Running the code
+
+### Running the backend
 
 From root folder, if need be: activate virtual env with:
 ```
 pipenv shell
 ```
 
-Then from `unionGov` folder:
+Then move to `unionGov` folder and type:
 ```
 python manage.py runserver
 ```
@@ -40,6 +56,27 @@ The backend is available in three parts:
 * the admin view (management of entities in the database) at `http://localhost:8000/admin`,
 * access to the "main" view at `http://localhost:8000/gov`,
 * API view at `http://localhost:8000/api` (more details in the view itself).
+
+### Running the frontend
+
+From the `union-gov/frontend` folder, type:
+```
+yarn start
+```
+
+The frontend is available from `http://localhost:3000`.
+
+### Additional notes
+
+* In the case when the frontend starts from another URL then `http://localhost:3000`, a fix can be to replace the line:
+```
+    "start": "react-scripts start",
+```
+by 
+```
+    "start": "HOST=localhost react-scripts start",
+```
+in the `scripts` section of the `frontend/package.json` file.
 
 # Contexte
 
