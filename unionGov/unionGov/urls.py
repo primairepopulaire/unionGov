@@ -36,7 +36,7 @@ router.register(r'positions', views.PositionAPIView, 'positions')
 
 
 urlpatterns = [
-    path('', include('gov.urls')),
+    path('', include(router.urls)),
     path('gov/', include('gov.urls')),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
