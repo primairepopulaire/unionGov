@@ -119,6 +119,7 @@ export default function FullWidthTabs(props) {
         aria-label='Share' 
         className={classes.fab}
         color="inherit"
+        onClick={props.updateConfigRef}
       >
         <GrShareOption/>
       </Fab>

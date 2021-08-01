@@ -13,7 +13,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      configRef: 1,
+      configRef: {
+        id: 0
+      },
+      currentUser: null,
       positionList: [],
       candidateList: [],
       configList: [],
@@ -21,6 +24,7 @@ class App extends Component {
       selectorList: []
     }
     this.updateConfig = this.updateConfig.bind(this);
+    this.updateConfigRef = this.updateConfigRef.bind(this);
   }
 
   refreshData = () => {
@@ -32,7 +36,7 @@ class App extends Component {
           .get("/api/candidates/"),
         axios.get("api/richConfigs/", {
           params: {
-            config_ref: this.state.configRef
+            config_ref: this.state.configRef.id
           }
         }),
       ])
@@ -42,9 +46,7 @@ class App extends Component {
           candidateList: arrayShuffle(candidateRes.data),
           configList: configRes.data
         });
-        console.log("Got data...");
         this.generateGovAndSelectorList();
-        console.log("generateGovAndSelectorList started...");
       }))
       .catch((err) => console.log(err));
   }
@@ -111,8 +113,28 @@ class App extends Component {
     this.setState({ govList: govList});
   }
 
+  getNewConfigRef = (withRefresh=true) => 
+    axios
+    .post("api/configRefs/", {
+      save_date: null,
+      user: this.state.currentUser
+    })
+    .then((res) => {
+      this.setState( {configRef: res.data});
+      if (withRefresh) {
+        this.refreshData();
+      }
+    })
+    .catch((err) => console.log(err));
+
   componentDidMount() {
-    this.refreshData();
+    // Create new configRef if needed 
+    if (this.state.configRef.id === 0) {
+      this.getNewConfigRef(true)
+    }
+    else {
+      this.refreshData();
+    }
   }
 
   updateConfig(positionId, candidateId) {
@@ -126,19 +148,15 @@ class App extends Component {
     // if undefined, create new config!
     if (configToUpdate === undefined) {
       const configData = {
-        config_ref: this.state.configRef,
+        config_ref: this.state.configRef.id,
         position: positionId,
         candidate: candidateId
       };
 
-      console.log(configData);
-
       axios
         .post("api/configs/", configData)
         .then((res) => {
-          console.log("Got result! ", res);
           this.refreshData();
-          console.log("Refresh started...");
         })
         .catch((err) => console.log(err));
       return
@@ -164,7 +182,7 @@ class App extends Component {
       }
 
       const configData = {
-        config_ref: this.state.configRef,
+        config_ref: this.state.configRef.id,
         position: positionId,
         candidate: candidateId
       };
@@ -173,9 +191,33 @@ class App extends Component {
         .put(`/api/configs/${configToUpdate.id}/`, configData)
         .then((res) => this.refreshData())
         .catch((err) => console.log(err));
+      
+      return
     }
   }
 
+  /**
+   * Saves date into current configRef and creates + loads a new one
+   */
+  updateConfigRef() {
+    let currentConfigRef = this.state.configRef;
+    if (currentConfigRef.id === 0) {
+      console.warning("Something wrong when saving: configRef id=0... Ignoring update call!")
+      return
+    }
+
+    // Set new date to configRef
+    currentConfigRef.save_date = new Date().toISOString();
+
+    // Modify current configRef and then get new one!
+    axios
+    .put(`/api/configRefs/${currentConfigRef.id}/`, currentConfigRef)
+    .then((res) => {
+      console.log("saved config: ", currentConfigRef);
+      this.getNewConfigRef(true);
+    })
+    .catch((err) => console.log(err));
+  }
 
   render() {
     return (
@@ -184,6 +226,7 @@ class App extends Component {
         govList={this.state.govList}
         updateConfig={this.updateConfig}
         selectorList={this.state.selectorList}
+        updateConfigRef={this.updateConfigRef}
       />
     );
   }
