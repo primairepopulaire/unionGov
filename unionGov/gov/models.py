@@ -18,7 +18,7 @@ class User(models.Model):
 class ConfigRef(models.Model):
     # long enough random string, to be set at generation
     config_ref = models.CharField(max_length=32, default=get_new_ref(), unique=True)
-    save_date = models.DateTimeField('date saved')
+    save_date = models.DateTimeField('date saved', blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
@@ -27,13 +27,14 @@ class ConfigRef(models.Model):
 class Candidate(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    image_url = models.ImageField(upload_to='img')
+    image_file = models.ImageField(upload_to='img', blank=True, null=True)
+    image_url = models.URLField(default="https://www.parrainages-primairepopulaire.fr/file/primaire_candidat_mystere.png")
 
     def __str__(self) -> str:
         return "{} {}".format(self.first_name, self.last_name)
 
 class Position(models.Model):
-    position_name = models.CharField(max_length=32)
+    position_name = models.CharField(max_length=64)
 
     def __str__(self) -> str:
         return self.position_name
@@ -52,6 +53,7 @@ def check_config(sender, instance, **kwargs):
     
     If not True raises a custom exception
     """
+    current_id = instance.id
     current_config_ref = instance.config_ref
     current_candidate = instance.candidate
     current_position = instance.position
@@ -62,9 +64,11 @@ def check_config(sender, instance, **kwargs):
     # Check distinct from values in instance
     for row in existing_rows:
         if (row.candidate.id == current_candidate.id):
-            raise ValidationError("Duplicate candidate in Config")
+            if (row.id != current_id):
+                raise ValidationError("Duplicate candidate in Config")
 
         if (row.position.id == current_position.id):
-            raise ValidationError("Duplicate position in Config")
+            if (row.id != current_id):
+                raise ValidationError("Duplicate position in Config")
 
     return True

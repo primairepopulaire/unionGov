@@ -29,13 +29,14 @@ ROOT = settings.BASE_DIR / 'img/'
 router = routers.DefaultRouter()
 router.register(r'candidates', views.CandidateAPIView, 'candidates')
 router.register(r'configs', views.ConfigAPIView, 'configs')
+router.register(r'richConfigs', views.RichConfigAPIView, 'richConfigs')
 router.register(r'configRefs', views.ConfigRefAPIView, 'configrefs')
 router.register(r'users', views.UserAPIView, 'users')
 router.register(r'positions', views.PositionAPIView, 'positions')
 
 
 urlpatterns = [
-    path('', include('gov.urls')),
+    path('', include(router.urls)),
     path('gov/', include('gov.urls')),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),

@@ -83,39 +83,39 @@
 -   model: gov.position
     pk: 3
     fields:
-        position_name: Affaires Étrangères
+        position_name: Ministre des Affaires Étrangères
 -   model: gov.position
     pk: 4
     fields:
-        position_name: Justice
+        position_name: Ministre de la Justice
 -   model: gov.position
     pk: 5
     fields:
-        position_name: Transition Écologique
+        position_name: Ministre de la Transition Écologique
 -   model: gov.position
     pk: 6
     fields:
-        position_name: Éducation Nationale
+        position_name: Ministre de l'Éducation Nationale
 -   model: gov.position
     pk: 8
     fields:
-        position_name: Santé
+        position_name: Ministre de la Santé
 -   model: gov.position
     pk: 9
     fields:
-        position_name: Culture
+        position_name: Ministre de la Culture
 -   model: gov.position
     pk: 11
     fields:
-        position_name: Ens. Sup et Recherche
+        position_name: Ministre de l'Enseignement Supérieur et de la Recherche
 -   model: gov.position
     pk: 14
     fields:
-        position_name: Agriculture
+        position_name: Ministre de l'Agriculture
 -   model: gov.position
     pk: 15
     fields:
-        position_name: Économie et Finances
+        position_name: Ministre de l'Économie et des Finances
 -   model: gov.config
     pk: 1
     fields:
@@ -123,14 +123,104 @@
         position: 1
         candidate: 5
 -   model: gov.config
-    pk: 2
+    pk: 7
+    fields:
+        config_ref: 3
+        position: 1
+        candidate: 10
+-   model: gov.config
+    pk: 8
+    fields:
+        config_ref: 3
+        position: 2
+        candidate: 7
+-   model: gov.config
+    pk: 10
+    fields:
+        config_ref: 2
+        position: 2
+        candidate: 4
+-   model: gov.config
+    pk: 11
+    fields:
+        config_ref: 2
+        position: 3
+        candidate: 6
+-   model: gov.config
+    pk: 13
+    fields:
+        config_ref: 2
+        position: 5
+        candidate: 5
+-   model: gov.config
+    pk: 14
+    fields:
+        config_ref: 2
+        position: 6
+        candidate: 8
+-   model: gov.config
+    pk: 15
+    fields:
+        config_ref: 2
+        position: 4
+        candidate: 7
+-   model: gov.config
+    pk: 16
+    fields:
+        config_ref: 2
+        position: 8
+        candidate: 9
+-   model: gov.config
+    pk: 17
+    fields:
+        config_ref: 2
+        position: 1
+        candidate: 10
+-   model: gov.config
+    pk: 18
     fields:
         config_ref: 1
         position: 2
-        candidate: 3
+        candidate: 10
 -   model: gov.config
-    pk: 4
+    pk: 19
     fields:
         config_ref: 1
         position: 3
+        candidate: 8
+-   model: gov.config
+    pk: 20
+    fields:
+        config_ref: 1
+        position: 4
+        candidate: 3
+-   model: gov.config
+    pk: 21
+    fields:
+        config_ref: 1
+        position: 5
+        candidate: 9
+-   model: gov.config
+    pk: 25
+    fields:
+        config_ref: 1
+        position: 6
+        candidate: 6
+-   model: gov.config
+    pk: 26
+    fields:
+        config_ref: 1
+        position: 11
         candidate: 4
+-   model: gov.config
+    pk: 27
+    fields:
+        config_ref: 2
+        position: 14
+        candidate: 3
+-   model: gov.config
+    pk: 28
+    fields:
+        config_ref: 3
+        position: 3
+        candidate: 8

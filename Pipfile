@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = ">=3.2"
 Pillow = "*" 
 pyyaml = "~=5.4"
 djangorestframework = "*"
 django-cors-headers = "*"
+django-filter = "*"
 
 [dev-packages]
 
