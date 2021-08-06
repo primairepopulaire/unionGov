@@ -17,12 +17,18 @@ class User(models.Model):
 
 class ConfigRef(models.Model):
     # long enough random string, to be set at generation
-    config_ref = models.CharField(max_length=32, default=get_new_ref(), unique=True)
+    config_ref = models.CharField(max_length=32, blank=True, unique=True)
     save_date = models.DateTimeField('date saved', blank=True, null=True)
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return "{} on {}".format(self.config_ref, self.save_date)
+
+    def save(self, *args, **kwargs): 
+        if not self.config_ref:
+            self.config_ref = get_new_ref()
+
+        super(ConfigRef, self).save(*args, **kwargs)
 
 class Candidate(models.Model):
     first_name = models.CharField(max_length=32)
