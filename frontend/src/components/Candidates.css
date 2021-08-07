@@ -1,11 +1,17 @@
 .candidatePicture {
     object-fit: contain;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     max-width: 100%;
+    min-width: 75px;
 }
 
 .candidateSelector {
     width: 250px;
-    max-width: 60%;
+    max-width: 68%;
+}
+
+.positionName {
+    width: 250px;
+    max-width: 68%;
 }

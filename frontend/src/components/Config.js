@@ -19,7 +19,7 @@ class Candidates extends Component {
         className="list-group-item d-flex justify-content-between align-items-center"
       >
         <span>
-          <span>{item.position_name}</span>
+          <span className="positionName">{item.position_name}</span>
           <span>
             <Select 
               className="candidateSelector" 
