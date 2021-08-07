@@ -144,6 +144,7 @@ class App extends Component {
       if (withRefresh) {
         this.refreshData();
       }
+      return this.state.configRef;
     })
     .catch((err) => console.log(err));
 
@@ -252,7 +253,15 @@ class App extends Component {
     .put(`/api/configRefs/${currentConfigRef.id}/`, currentConfigRef)
     .then((res) => {
       console.log("saved config: ", currentConfigRef);
-      this.getNewConfigRef(true);
+      this.getNewConfigRef(true)
+        .then((res) => {
+          let msg=`Saved config n° ${currentConfigRef.id}, 
+ref : ${currentConfigRef.config_ref}.
+          
+New config n° ${res.id}, 
+ref : ${res.config_ref}.`
+          alert(msg);
+        })
     })
     .catch((err) => console.log(err));
   }
