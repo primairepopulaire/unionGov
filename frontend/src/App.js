@@ -113,7 +113,14 @@ class App extends Component {
     this.setState({ govList: govList});
   }
 
-  getNewConfigRef = (withRefresh=true) => 
+  /**
+   * initialConfig should be formatted for post in Config (i.e. only ids!)
+   * 
+   * @param {boolean} withRefresh 
+   * @param {boolean} duplicateConfig 
+   * @returns 
+   */
+  getNewConfigRef = (withRefresh=true, duplicateConfig=true) => 
     axios
     .post("api/configRefs/", {
       save_date: null,
@@ -121,6 +128,19 @@ class App extends Component {
     })
     .then((res) => {
       this.setState( {configRef: res.data});
+      return 
+    })
+    .then(() => {
+      if (duplicateConfig) {
+        let initialConfig = this.getGenerateConfig(this.state.configRef.id);
+        return axios.all(
+          initialConfig.map((configData) => 
+            axios.post("api/configs/", configData)
+        ))
+      }
+      return 
+    })
+    .then((res) => {
       if (withRefresh) {
         this.refreshData();
       }
@@ -130,7 +150,8 @@ class App extends Component {
   componentDidMount() {
     // Create new configRef if needed 
     if (this.state.configRef.id === 0) {
-      this.getNewConfigRef(true)
+      // refresh but no duplication of config
+      this.getNewConfigRef(true, false)
     }
     else {
       this.refreshData();
@@ -194,6 +215,23 @@ class App extends Component {
       
       return
     }
+  }
+  
+  /**
+   * Get current config and return it as list ready for use in post statement, using provided configRefId
+   * 
+   * @param {*} configRefId 
+   * @returns 
+   */
+  getGenerateConfig(configRefId) {
+    return this.state.configList
+      .map((configItem) => {
+        return {
+          config_ref: configRefId,
+          position: configItem.position.id,
+          candidate: configItem.candidate.id
+        }
+      })
   }
 
   /**
