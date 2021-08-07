@@ -1,8 +1,11 @@
 .candidatePicture {
+    object-fit: contain;
     height: 100px;
     width: 100px;
+    max-width: 100%;
 }
 
 .candidateSelector {
     width: 250px;
+    max-width: 68%;
 }
