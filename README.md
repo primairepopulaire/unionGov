@@ -17,6 +17,7 @@ Move to the installation folder and:
 * activate the local environnement with `pipenv shell`.
 
 Now move to the folder `unionGov` with `cd unionGov` and:
+* add a file `.env` containing the secret key under the form: `SECRET_KEY=my_secret_key_no_inverted_commas`,
 * generate the database (Sqlite3) with `python manage.py migrate`,
 * populate the database with `python manage.py loaddata --app gov default` (which recovers the data from the `gov/fixtures/default.yaml` file),
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin view,
