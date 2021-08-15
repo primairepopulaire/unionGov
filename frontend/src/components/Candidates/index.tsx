@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import "./Candidates.css";
+import "./index.css";
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -10,7 +10,7 @@ class Candidates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      candidateList: this.props.candidateList
+      candidateList: this.props.candidateList,
     };
   }
 
@@ -26,9 +26,9 @@ class Candidates extends Component {
           {item.first_name} {item.last_name}
         </span>
         <span>
-          <img 
-            className="candidatePicture" 
-            src={item.image_url} 
+          <img
+            className="candidatePicture"
+            src={item.image_url}
             alt={item.last_name}
           ></img>
         </span>
@@ -38,15 +38,15 @@ class Candidates extends Component {
 
   render() {
     return (
-        <div className="row">
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
-              <ul className="list-group list-group-flush border-top-0">
-                {this.renderItems()}
-              </ul>
-            </div>
+      <div className="row">
+        <div className="col-md-6 col-sm-10 mx-auto p-0">
+          <div className="card p-3">
+            <ul className="list-group list-group-flush border-top-0">
+              {this.renderItems()}
+            </ul>
           </div>
         </div>
+      </div>
     );
   }
 }
