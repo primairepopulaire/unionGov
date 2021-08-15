@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import FullWidthTabs from "./components/Tabs";
+import React, { Component } from 'react';
 
 import arrayShuffle from 'array-shuffle';
 
 // Axios for link to backend
-import axios from "axios";
-import { EmptyProps } from "./types";
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
+import axios from 'axios';
+import FullWidthTabs from './components/Tabs';
+import { EmptyProps } from './types';
 
+axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+axios.defaults.xsrfCookieName = 'csrftoken';
 
 type State = {
   configRef: {
@@ -38,9 +38,9 @@ class App extends Component<EmptyProps, State> {
   refreshData = () => {
     axios
       .all([
-        axios.get("/api/positions/"),
-        axios.get("/api/candidates/"),
-        axios.get("api/richConfigs/", {
+        axios.get('/api/positions/'),
+        axios.get('/api/candidates/'),
+        axios.get('api/richConfigs/', {
           params: {
             config_ref: this.state.configRef.id,
           },
@@ -54,7 +54,7 @@ class App extends Component<EmptyProps, State> {
             configList: configRes.data,
           });
           this.generateGovAndSelectorList();
-        })
+        }),
       )
       .catch((err) => console.log(err));
   };
@@ -69,29 +69,27 @@ class App extends Component<EmptyProps, State> {
   generateGovAndSelectorList = () => {
     // Collect selected candidates
     const selectedCandidateId = this.state.configList.map(
-      (config) => config.candidate.id
+      (config) => config.candidate.id,
     );
 
     // Refresh selector list
-    let selectorList = this.state.candidateList.map((candidate) => {
-      return {
-        value: candidate.id,
-        label: `${candidate.first_name} ${candidate.last_name}`,
-        disabled: selectedCandidateId.includes(candidate.id),
-      };
-    });
+    const selectorList = this.state.candidateList.map((candidate) => ({
+      value: candidate.id,
+      label: `${candidate.first_name} ${candidate.last_name}`,
+      disabled: selectedCandidateId.includes(candidate.id),
+    }));
 
     selectorList.unshift({
       value: 0,
-      label: "-",
+      label: '-',
       disabled: false,
     });
 
-    this.setState({ selectorList: selectorList });
+    this.setState({ selectorList });
 
     // Generate govList
     const selectedPositions = this.state.configList.map(
-      (config) => config.position.id
+      (config) => config.position.id,
     );
 
     let govList = this.state.positionList.slice();
@@ -99,7 +97,7 @@ class App extends Component<EmptyProps, State> {
     govList = govList.map((position) => {
       if (selectedPositions.includes(position.id)) {
         const positionConfig = this.state.configList.filter(
-          (config) => config.position.id === position.id
+          (config) => config.position.id === position.id,
         )[0];
 
         return {
@@ -108,19 +106,18 @@ class App extends Component<EmptyProps, State> {
           candidate_id: positionConfig.candidate.id,
           image_url: positionConfig.candidate.image_url,
         };
-      } else {
-        // Default value
-        return {
-          id: position.id,
-          position_name: position.position_name,
-          candidate_id: 0,
-          image_url:
-            "https://www.parrainages-primairepopulaire.fr/file/primaire_candidat_mystere.png",
-        };
       }
+      // Default value
+      return {
+        id: position.id,
+        position_name: position.position_name,
+        candidate_id: 0,
+        image_url:
+            'https://www.parrainages-primairepopulaire.fr/file/primaire_candidat_mystere.png',
+      };
     });
 
-    this.setState({ govList: govList });
+    this.setState({ govList });
   };
 
   /**
@@ -130,34 +127,29 @@ class App extends Component<EmptyProps, State> {
    * @param {boolean} duplicateConfig
    * @returns
    */
-  getNewConfigRef = (withRefresh = true, duplicateConfig = true) =>
-    axios
-      .post("api/configRefs/", {
-        save_date: null,
-        user: this.state.currentUser,
-      })
-      .then((res) => {
-        this.setState({ configRef: res.data });
-        return;
-      })
-      .then(() => {
-        if (duplicateConfig) {
-          let initialConfig = this.getGenerateConfig(this.state.configRef.id);
-          return axios.all(
-            initialConfig.map((configData) =>
-              axios.post("api/configs/", configData)
-            )
-          );
-        }
-        return;
-      })
-      .then((res) => {
-        if (withRefresh) {
-          this.refreshData();
-        }
-        return this.state.configRef;
-      })
-      .catch((err) => console.log(err));
+  getNewConfigRef = (withRefresh = true, duplicateConfig = true) => axios
+    .post('api/configRefs/', {
+      save_date: null,
+      user: this.state.currentUser,
+    })
+    .then((res) => {
+      this.setState({ configRef: res.data });
+    })
+    .then(() => {
+      if (duplicateConfig) {
+        const initialConfig = this.getGenerateConfig(this.state.configRef.id);
+        return axios.all(
+          initialConfig.map((configData) => axios.post('api/configs/', configData)),
+        );
+      }
+    })
+    .then((res) => {
+      if (withRefresh) {
+        this.refreshData();
+      }
+      return this.state.configRef;
+    })
+    .catch((err) => console.log(err));
 
   componentDidMount() {
     // Create new configRef if needed
@@ -169,10 +161,10 @@ class App extends Component<EmptyProps, State> {
     }
   }
 
-  updateConfig = (positionId, candidateId)  => {
+  updateConfig = (positionId, candidateId) => {
     console.log(`Update: position ${positionId}, candidate ${candidateId}`);
 
-    let configToUpdate = this.state.configList
+    const configToUpdate = this.state.configList
       .filter((config) => config.position.id === positionId)
       .shift();
 
@@ -185,7 +177,7 @@ class App extends Component<EmptyProps, State> {
       };
 
       axios
-        .post("api/configs/", configData)
+        .post('api/configs/', configData)
         .then((res) => {
           this.refreshData();
         })
@@ -205,7 +197,7 @@ class App extends Component<EmptyProps, State> {
         return;
       }
 
-      let newCandidate = this.state.candidateList
+      const newCandidate = this.state.candidateList
         .filter((candidate) => candidate.id === candidateId)
         .shift();
 
@@ -223,8 +215,6 @@ class App extends Component<EmptyProps, State> {
         .put(`/api/configs/${configToUpdate.id}/`, configData)
         .then((res) => this.refreshData())
         .catch((err) => console.log(err));
-
-      return;
     }
   }
 
@@ -235,23 +225,21 @@ class App extends Component<EmptyProps, State> {
    * @returns
    */
   getGenerateConfig(configRefId) {
-    return this.state.configList.map((configItem) => {
-      return {
-        config_ref: configRefId,
-        position: configItem.position.id,
-        candidate: configItem.candidate.id,
-      };
-    });
+    return this.state.configList.map((configItem) => ({
+      config_ref: configRefId,
+      position: configItem.position.id,
+      candidate: configItem.candidate.id,
+    }));
   }
 
   /**
    * Saves date into current configRef and creates + loads a new one
    */
   updateConfigRef = () => {
-    let currentConfigRef = this.state.configRef;
+    const currentConfigRef = this.state.configRef;
     if (currentConfigRef.id === 0) {
       console.warning(
-        "Something wrong when saving: configRef id=0... Ignoring update call!"
+        'Something wrong when saving: configRef id=0... Ignoring update call!',
       );
       return;
     }
@@ -263,9 +251,9 @@ class App extends Component<EmptyProps, State> {
     axios
       .put(`/api/configRefs/${currentConfigRef.id}/`, currentConfigRef)
       .then((res) => {
-        console.log("saved config: ", currentConfigRef);
+        console.log('saved config: ', currentConfigRef);
         this.getNewConfigRef(true).then((res) => {
-          let msg = `Saved config n° ${currentConfigRef.id}, 
+          const msg = `Saved config n° ${currentConfigRef.id}, 
 ref : ${currentConfigRef.config_ref}.
           
 New config n° ${res.id}, 

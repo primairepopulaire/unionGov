@@ -1,20 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Fab from "@material-ui/core/Fab";
-import { GrShareOption } from "react-icons/gr";
+import React from 'react';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Fab from '@material-ui/core/Fab';
+import { GrShareOption } from 'react-icons/gr';
 
-import Candidates from "../Candidates";
-import Config from "../Config";
+import Candidates from '../Candidates';
+import Config from '../Config';
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const {
+    children, value, index, ...other
+  } = props;
 
   return (
     <div
@@ -26,7 +28,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography component={"div"}>{children}</Typography>
+          <Typography component="div">{children}</Typography>
         </Box>
       )}
     </div>
@@ -42,17 +44,17 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    //width: 500,
+    // width: 500,
   },
   fab: {
-    position: "fixed",
+    position: 'fixed',
     top: theme.spacing(8),
     right: theme.spacing(2),
   },
@@ -62,9 +64,9 @@ export default function FullWidthTabs(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const govList = props.govList;
-  const candidateList = props.candidateList;
-  const selectorList = props.selectorList;
+  const { govList } = props;
+  const { candidateList } = props;
+  const { selectorList } = props;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -90,21 +92,25 @@ export default function FullWidthTabs(props) {
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
           <div className="about">
             <p>
-              Ce site est un projet parallèle à la{" "}
-              <a href="https://primairepopulaire.fr/">Primaire Populaire</a>.
+              Ce site est un projet parallèle à la
+              {' '}
+              <a href="https://primairepopulaire.fr/">Primaire Populaire</a>
+              .
               Sur le site principal vous pouvez voir la démarche du projet en
               détail.
             </p>
 
             <p>
-              <a href="http://mariecasays.com/">Marie Casaÿs</a> a réalisé les
+              <a href="http://mariecasays.com/">Marie Casaÿs</a>
+              {' '}
+              a réalisé les
               illustrations des candidats.
             </p>
           </div>
