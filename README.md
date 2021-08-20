@@ -9,7 +9,7 @@ In order to run this repository,
 
 * clone the repository (*e.g.* `git clone https://github.com/primairepopulaire/unionGov.git`, but you might want to use ssh),
 * make sure `pipenv` is installed in your Python3 (if not: `sudo apt install pipenv` should work on Linux else try `python -m pip install pipenv`),
-* in the current configuration, you will need a Postgres database and 
+* in the current configuration, you will need a Postgres database - `psycopg2-binary` package will be installed using `pipenv`.
 
 ### Backend installation
 
@@ -39,7 +39,7 @@ Here we assume that Node.js and `yarn` are already available on the computer. Fo
 From the `frontend` folder, 
 * install the required packages with 
 ```
-yarn install
+yarnpkg install
 ```
 
 For more details, see `README.md` in the folder `frontend`.
@@ -73,7 +73,7 @@ The backend is available in three parts:
 
 From the `frontend` folder, type:
 ```
-yarn start
+yarnpkg start
 ```
 
 The frontend is available from `http://localhost:3000`.
@@ -220,7 +220,4 @@ Tables :
 ## Références
 
 - Infos rassemblées actuellement (dont listes des candidats, des ministères disponibles, ...) : voir [ce document](https://docs.google.com/spreadsheets/d/1M__XSj-t5aVmp-XiJZNYz7GMJfZxu_GumKynP3_k_iI/edit?usp=sharing).
-- Sites similaires pour le foot (!) :
-    - [Pick England all-time XI](https://www.bbc.com/sport/football/50100528)
-    - [Pick your combined Italy and England XI](https://www.uefa.com/uefaeuro-2020/news/026b-12b6c939f50d-a33aa7792575-1000--pick-your-combined-italy-and-england-xi/)
 - Tutoriel de référence Django + React : voir [ici](https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react).
