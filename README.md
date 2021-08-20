@@ -8,7 +8,8 @@ More details about the context (in French): see [section "Contexte"](#contexte) 
 In order to run this repository,
 
 * clone the repository (*e.g.* `git clone https://github.com/primairepopulaire/unionGov.git`, but you might want to use ssh),
-* make sure `pipenv` is installed in your Python3 (if not: `sudo apt install pipenv` should work on Linux else try `python -m pip install pipenv`).
+* make sure `pipenv` is installed in your Python3 (if not: `sudo apt install pipenv` should work on Linux else try `python -m pip install pipenv`),
+* in the current configuration, you will need a Postgres database and 
 
 ### Backend installation
 
@@ -17,11 +18,19 @@ Move to the installation folder and:
 * activate the local environnement with `pipenv shell`.
 
 Now move to the folder `unionGov` with `cd unionGov` and:
-* add a file `.env` containing the secret key under the form: `SECRET_KEY=my_secret_key_no_inverted_commas`,
-* generate the database (Sqlite3) with `python manage.py migrate`,
+* add a file `.env` containing credentials under the form: 
+```
+SECRET_KEY=my_secret_key_no_inverted_commas
+DB_NAME=name_of_postgres_db_to_use
+DB_USER=name_of_postgres_user
+DB_PASSWORD=password_for_postgres_db
+```
+* generate the database with `python manage.py migrate`,
 * populate the database with `python manage.py loaddata --app gov default` (which recovers the data from the `gov/fixtures/default.yaml` file),
 * create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin view,
 * see the [section below](#running-the-backend) to see how to run the backend. 
+
+NB: a superuser is needed, the DB user defined to access the database is not enough!
 
 ### Frontend installation
 
