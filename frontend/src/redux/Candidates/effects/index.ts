@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { fetchAllCandidatesAPI } from '../../api/candidates'
-import handleError from '../../lib/error'
-import logger from '../../lib/log'
-import { mapApiToCandidates } from './helpers'
+import { fetchAllCandidatesAPI } from '../../../api/candidates'
+import handleError from '../../../lib/error'
+import logger from '../../../lib/log'
+import { mapApiToCandidates } from '../lib/mapper'
 
 export const fetchAllCandidates = createAsyncThunk(
   'candidates/fetchAll',

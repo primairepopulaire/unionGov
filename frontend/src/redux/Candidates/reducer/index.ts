@@ -1,8 +1,7 @@
 import {
   createSlice
 } from '@reduxjs/toolkit'
-import { } from './effects'
-import { candidatesAdapter, initialCandidatesState } from './state'
+import { candidatesAdapter, initialCandidatesState } from '../state'
 
 const candidatesSlice = createSlice({
   name: 'candidates',

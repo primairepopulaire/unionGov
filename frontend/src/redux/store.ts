@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import candidatesSlice from './Candidates'
-import positionsSlice from './Positions'
+import candidatesSlice from './Candidates/reducer'
+import governmentSlice from './Government/reducer'
+import positionsSlice from './Positions/reducer'
 
 export const store = configureStore({
   reducer: {
     candidates: candidatesSlice.reducer,
-    positions: positionsSlice.reducer
+    positions: positionsSlice.reducer,
+    government: governmentSlice.reducer
   }
 })
 

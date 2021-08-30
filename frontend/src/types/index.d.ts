@@ -1,1 +1,1 @@
-export type EmptyProps = Record<string, never>;
+export type EmptyRecord = Record<string, never>;

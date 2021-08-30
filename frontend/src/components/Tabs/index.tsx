@@ -1,19 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 import { GrShareOption } from 'react-icons/gr';
-
+import SwipeableViews from 'react-swipeable-views';
 import Candidates from '../Candidates';
-import Config from '../Config';
+import Config from '../Government';
 
-function TabPanel(props) {
+function TabPanel (props) {
   const {
     children, value, index, ...other
   } = props;
@@ -38,29 +36,29 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
-function a11yProps(index) {
+function a11yProps (index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
     // width: 500,
   },
   fab: {
     position: 'fixed',
     top: theme.spacing(8),
-    right: theme.spacing(2),
-  },
+    right: theme.spacing(2)
+  }
 }));
 
-export default function FullWidthTabs(props) {
+export default function FullWidthTabs (props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);

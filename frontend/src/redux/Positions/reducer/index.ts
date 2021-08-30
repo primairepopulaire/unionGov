@@ -1,17 +1,7 @@
 import {
-  createEntityAdapter,
   createSlice
 } from '@reduxjs/toolkit'
-
-type Position = {
-  id: string;
-  name: string;
-};
-
-const positionsAdapter = createEntityAdapter<Position>({
-  // Assume IDs are stored in a field other than `book.id,
-  selectId: (position) => position.id
-})
+import { positionsAdapter } from '../state'
 
 const positionsSlice = createSlice({
   name: 'positions',
