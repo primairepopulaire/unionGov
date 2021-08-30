@@ -1,6 +1,5 @@
 import { FunctionComponent, memo } from 'react';
 import CandidateSelect, { Props as SelectProps } from '../../containers/SelectCandidate';
-import '../Candidates/index.css';
 
 export type Props = {
   /** The associated candidate uri */

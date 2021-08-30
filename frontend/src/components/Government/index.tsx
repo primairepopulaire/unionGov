@@ -1,6 +1,5 @@
 import { FunctionComponent, memo } from 'react';
 import Item, { Props as ItemProps } from '../../containers/GovernmentItem';
-import '../Candidates/index.css';
 
 export type Props = {
   items?: ItemProps[];

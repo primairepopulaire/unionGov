@@ -2,7 +2,6 @@ import { FunctionComponent, memo, useCallback } from 'react';
 import Select from 'react-select';
 import handleError from '../../lib/error';
 import { Candidate } from '../../redux/Candidates/state';
-import '../Candidates/index.css';
 
 type Option = {
   id: Candidate['id'];
