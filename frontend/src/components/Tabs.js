@@ -14,6 +14,7 @@ import Candidates from './Candidates';
 import Config from './Config';
 
 import "../App.css"
+import { useParams } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -61,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FullWidthTabs(props) {
+  // hook to access dynamic piece of URL
+  let { ref } = useParams();
+
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -102,6 +106,8 @@ export default function FullWidthTabs(props) {
             Sur le site principal vous pouvez voir la démarche du projet en détail.</p>
 
             <p><a href="http://mariecasays.com/">Marie Casaÿs</a> a réalisé les illustrations des candidats.</p>
+
+            <p>Pour référence : {ref}</p>
           </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import FullWidthTabs from "./components/Tabs";
 
 import arrayShuffle from 'array-shuffle';
@@ -268,13 +269,28 @@ ref : ${res.config_ref}.`
 
   render() {
     return (
-      <FullWidthTabs 
-        candidateList={this.state.candidateList}
-        govList={this.state.govList}
-        updateConfig={this.updateConfig}
-        selectorList={this.state.selectorList}
-        updateConfigRef={this.updateConfigRef}
-      />
+      <Router>
+        <Switch>
+          <Route path="/:ref" children={
+            <FullWidthTabs 
+            candidateList={this.state.candidateList}
+            govList={this.state.govList}
+            updateConfig={this.updateConfig}
+            selectorList={this.state.selectorList}
+            updateConfigRef={this.updateConfigRef}
+            />
+          } />
+          <Route children={
+            <FullWidthTabs 
+            candidateList={this.state.candidateList}
+            govList={this.state.govList}
+            updateConfig={this.updateConfig}
+            selectorList={this.state.selectorList}
+            updateConfigRef={this.updateConfigRef}
+            />
+          } />          
+        </Switch>
+      </Router>
     );
   }
 }
