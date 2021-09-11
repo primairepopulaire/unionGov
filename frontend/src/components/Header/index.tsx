@@ -12,7 +12,7 @@ const styles: Styles = {
   container: {
     backgroundColor: theme.palette.primary.main,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#fff',
+    borderBottomColor: theme.palette.secondary.main,
     borderBottomStyle: 'solid'
   },
   text: {
