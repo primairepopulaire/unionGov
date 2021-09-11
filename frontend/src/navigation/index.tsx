@@ -4,6 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 import Candidates from '../pages/Candidates';
 import Government from '../pages/Government';
 import { EmptyRecord } from '../types';
@@ -24,6 +25,7 @@ const Navigation: FunctionComponent<EmptyRecord> = () => (
   <Router>
     <div className="flex-fill">
       <AppBar position="static">
+        <Header />
         <Route
           render={({ history, location }) => (
             <Tabs
