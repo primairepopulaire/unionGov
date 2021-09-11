@@ -12,6 +12,7 @@ export type Props = {
 
 type Styles = {
   misteryItem: CSSProperties;
+  image: CSSProperties;
   reset: CSSProperties;
   resetIcon: CSSProperties;
 }
@@ -19,12 +20,16 @@ type Styles = {
 const styles: Styles = {
   misteryItem: {
     backgroundColor: theme.palette.secondary.main,
-    fontSize: '20px',
-    fontWeight: 500,
     color: 'white',
     borderRadius: '100%',
-    width: '40px',
-    height: '40px'
+    width: 40,
+    height: 40,
+    paddingTop: 5
+  },
+  image: {
+    width: 40,
+    height: 40,
+    marginTop: 4
   },
   reset: {
     position: 'absolute',
@@ -43,21 +48,22 @@ const styles: Styles = {
 const GovernmentItem: FunctionComponent<Props> = memo(
   ({ imageUrl, positionName, onReset, ...props }) => (
     <li className="list-group-item d-flex justify-content-between align-items-center">
-      <div className="col-10">
+      <div className="col pr-4">
         <Typography color={imageUrl ? 'primary' : undefined}>
           {positionName}
         </Typography>
         <CandidateSelect {...props} />
       </div>
       {!!imageUrl && (
-        <img className="col-2" src={imageUrl} alt={positionName} />
+        <img style={styles.image} src={imageUrl} alt={positionName} />
       )}
       {!imageUrl && (
-        <div className="col-2 d-flex align-items-center justify-content-end">
+        <div className="d-flex align-items-center justify-content-end">
           <Typography
             align="center"
+            variant="h6"
             style={styles.misteryItem}
-            className={'justify-content-center align-items-center p-2'}
+            className={'justify-content-center align-items-center'}
           >
             ?
           </Typography>
