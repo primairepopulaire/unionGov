@@ -20,7 +20,7 @@ export const fetchAllCandidates = createAsyncThunk(
       throw new Error('Failed to parse server reponse')
     } catch (error) {
       handleError({
-        error,
+        error: error as Error,
         context: {
           origin: 'fetchAllCandidates'
         }
