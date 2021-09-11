@@ -14,7 +14,7 @@ const Government: FunctionComponent<Props> = memo(({ items = EMPTY_ITEMS }) => (
       <div className="card px-3">
         <ul className="list-group list-group-flush border-top-0">
           {items.map((item, index) => (
-            <Item key={`governement-item-${index + 1}`} {...item} />
+            <Item key={`governement-item-${index}`} {...item} />
           ))}
         </ul>
       </div>

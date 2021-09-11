@@ -1,7 +1,8 @@
 import { FunctionComponent, memo, useCallback } from 'react';
-import Select from 'react-select';
+import Select, { defaultTheme } from 'react-select';
 import handleError from '../../lib/error';
 import { Candidate } from '../../redux/Candidates/state';
+import theme from '../../theme';
 
 type Option = {
   id: Candidate['id'];
@@ -13,6 +14,15 @@ export type Props = {
   current?: Option;
   options?: Option[];
   onChange: (newCandidateId: Option['id']) => void;
+};
+
+const selectTheme: typeof defaultTheme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme.colors,
+    primary25: theme.palette.secondary.main,
+    primary: theme.palette.primary.main
+  }
 };
 
 const isOptionDisabled: Select<Option>['props']['isOptionDisabled'] = ({
@@ -32,11 +42,13 @@ const CandidateSelect: FunctionComponent<Props> = memo(({ current, options, onCh
 
   return (
     <Select<Option>
-      className="candidateSelector"
+      placeholder="Choisis..."
       options={options}
       onChange={handleChange}
       isOptionDisabled={isOptionDisabled}
-      value={current}
+      value={current || undefined}
+      controlShouldRenderValue={!!current}
+      theme={selectTheme}
       isSearchable={true}
     />
   );
