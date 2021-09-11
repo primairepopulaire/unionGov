@@ -34,12 +34,7 @@ const styles: Styles = {
 const ShareButton: FunctionComponent<Props> = memo(
   ({ isDisabled = false, missingPositionCount, onShare }) => (
     <div className="container">
-      {missingPositionCount && <div className="row mx-4">
-        <Typography className="flex-fill pr-2" variant="body1" color="primary">
-          Encore {missingPositionCount} à choisir avant de pouvoir partager
-        </Typography>
-      </div>}
-      <div className={`row mx-4 ${missingPositionCount ? 'mt-2' : ''}`}>
+      <div className="row mx-4">
         <Button
           className="flex-fill text-center align-items-center justify-content-center d-flex"
           disabled={isDisabled}
@@ -57,6 +52,11 @@ const ShareButton: FunctionComponent<Props> = memo(
           Partager
         </Button>
       </div>
+      {missingPositionCount && <div className="row mx-4 mt-2">
+        <Typography className="flex-fill pr-2" variant="caption" color="primary">
+          Encore {missingPositionCount} poste à attribuer avant de pouvoir partager
+        </Typography>
+      </div>}
     </div>
   )
 );
