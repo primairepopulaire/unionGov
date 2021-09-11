@@ -13,9 +13,9 @@ const EMPTY_CANDIDATES: NonNullable<Props['candidates']> = []
 const Candidates: FunctionComponent<Props> = memo(({
   candidates = EMPTY_CANDIDATES
 }) => (
-    <div className="row">
-      <div className="col-md-6 col-sm-10 mx-auto p-0">
-        <div className="card p-3">
+    <div className="row mt-4">
+      <div className="col-md-8 col-sm-10 mx-auto p-0">
+        <div className="card px-3">
           <ul className="list-group list-group-flush border-top-0">{candidates.map((item, index) => <Item key={`candidates-item-${index}`} {...item} />)}</ul>
         </div>
       </div>
