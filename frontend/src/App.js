@@ -27,6 +27,14 @@ class App extends Component {
     this.updateConfigRef = this.updateConfigRef.bind(this);
   }
 
+  /**
+   * Recovers positions, candidates and "richConfigs" for current configRef.
+   * Set state accordingly.
+   * 
+   * NB: richConfigs provides a list of pairs position/candidate, complete with:
+   *  _ id and `position_name` for position
+   *  _ id, first_name, last_name and image_url for candidate.
+   */
   refreshData = () => {
     axios
       .all([
@@ -159,10 +167,20 @@ class App extends Component {
     }
   }
 
+  /**
+   * Save a new "line" in Config, with position positionId associated to 
+   * candidate candidateId.
+   * 
+   * Delete existing "line" in Config with 
+   * 
+   * @param {number} positionId 
+   * @param {number} candidateId 
+   * @returns 
+   */
   updateConfig(positionId, candidateId) {
     console.log(`Update: position ${positionId}, candidate ${candidateId}`);
 
-    
+    // list of lines in config corresponding to positionId
     let configToUpdate = this.state.configList.filter((config) =>
       config.position.id === positionId 
     ).shift();
@@ -184,9 +202,11 @@ class App extends Component {
       return
     }
 
+    // Check that previous candidate id was different from current.
     if (configToUpdate.candidate.id !== candidateId) {
       configToUpdate.candidate=candidateId
 
+      // NB: in generateGovAndSelectorList, first line (empty candidate) has id === 0
       if (candidateId === 0) {
         // Delete config
         axios
@@ -209,6 +229,7 @@ class App extends Component {
         candidate: candidateId
       };
       
+      // Save new line in config and refresh
       axios
         .put(`/api/configs/${configToUpdate.id}/`, configData)
         .then((res) => this.refreshData())
