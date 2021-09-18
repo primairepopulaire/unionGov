@@ -1,0 +1,44 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - /home/sattisvar/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  migration:
+    build: .
+    image: app
+    command: bash -c "
+        pipenv run python unionGov/manage.py makemigrations
+        && pipenv run python unionGov/manage.py migrate 
+        && pipenv run python unionGov/manage.py loaddata --app gov default"
+    volumes:
+      - .:/code
+    environment:
+      - API_HOST=api
+    links:
+      - db
+    depends_on: 
+      - db
+  api:
+    image: app
+    command: pipenv run python unionGov/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    environment:
+      - API_HOST=api
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    depends_on:
+      - migration
+
+  front:
+    build: frontend
+    ports:
+      - "3000:3000"

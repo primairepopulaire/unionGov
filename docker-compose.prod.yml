@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
 
 services:
   traefik:
@@ -8,13 +8,15 @@ services:
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=postmaster@example.com"
+      - "--certificatesresolvers.myresolver.acme.email=mail@tandabany.fr"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "443:443"
-      - "8080:8080"
+      - "80:80"
     volumes:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
@@ -60,7 +62,7 @@ services:
     ports:
       - "3000:3000"
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`unionGov.tandabany.fr`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.services.front.loadbalancer.server.port=3000" # Container port
+      - "traefik.http.routers.front.rule=Host(`uniongov.tandabany.fr`)"
+      - "traefik.http.routers.front.entrypoints=websecure"
+      - "traefik.http.routers.front.tls.certresolver=myresolver"
