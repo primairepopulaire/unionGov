@@ -6,6 +6,10 @@ import { store } from './redux/store';
 import theme from './theme';
 import { EmptyRecord } from './types';
 
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
 class App extends Component<EmptyRecord, EmptyRecord> {
   render () {
     return (
