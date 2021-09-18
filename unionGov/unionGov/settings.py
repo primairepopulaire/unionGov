@@ -32,7 +32,11 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+API_HOST = os.environ['API_HOST']
+
+ALLOWED_HOSTS = [
+  f'{API_HOST}'
+]
 
 
 # Application definition
