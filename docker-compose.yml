@@ -1,14 +1,31 @@
 version: "3.9"
 
 services:
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=postmaster@example.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
   db:
     image: postgres:latest
     volumes:
       - /home/sattisvar/data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
   migration:
     build: .
     image: app
@@ -18,18 +35,32 @@ services:
         && pipenv run python unionGov/manage.py loaddata --app gov default"
     volumes:
       - .:/code
+    environment:
+      - API_HOST=api
     links:
       - db
     depends_on: 
       - db
-  web:
+  api:
     image: app
     command: pipenv run python unionGov/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    environment:
+      - API_HOST=api
     ports:
       - "8000:8000"
     links:
       - db
     depends_on:
       - migration
+
+  front:
+    build: frontend
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`unionGov.tandabany.fr`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
