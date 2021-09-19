@@ -10,4 +10,6 @@ RUN yarnpkg install
 
 COPY . ./
 
+RUN yarnpkg build
+
 CMD ["yarnpkg", "start"]
