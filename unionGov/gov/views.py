@@ -1,12 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.views.generic.list import ListView
-
-from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets
 
 from .models import Candidate, Config, ConfigRef, Position, User
-from .serializers import CandidateSerializer, ConfigSerializer, ConfigRefSerializer 
-from .serializers import PositionSerializer, UserSerializer, RichConfigSerializer
+from .serializers import (CandidateSerializer, ConfigRefSerializer,
+                          ConfigSerializer, PositionSerializer,
+                          RichConfigSerializer, UserSerializer,
+                          XConfigSerializer)
 
 
 class CandidateAPIView(viewsets.ModelViewSet):
@@ -25,6 +26,12 @@ class RichConfigAPIView(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['config_ref']
 
+class XConfigAPIView(viewsets.ModelViewSet):
+    queryset = Config.objects.all()
+    serializer_class = XConfigSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['config_ref__config_ref']
+
 class ConfigRefAPIView(viewsets.ModelViewSet):
     serializer_class = ConfigRefSerializer
     queryset = ConfigRef.objects.all()
@@ -34,8 +41,6 @@ class ConfigRefAPIView(viewsets.ModelViewSet):
 class PositionAPIView(viewsets.ModelViewSet):
     serializer_class = PositionSerializer
     queryset = Position.objects.all().order_by('id')
-
-
 
 class UserAPIView(viewsets.ModelViewSet):
     serializer_class = UserSerializer
