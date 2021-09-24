@@ -30,6 +30,7 @@ services:
     volumes:
       - .:/code
     environment:
+      - DEBUG=True
       - API_HOST=api
     ports:
       - "8000:8000"

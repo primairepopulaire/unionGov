@@ -5,15 +5,18 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.core.exceptions import ValidationError
 
+
 def get_new_ref():
     """ Generate a new config ref """
     return get_random_string(length=32)
+
 
 # Create your models here.
 class User(models.Model):
     email_address = models.EmailField()
     first_name = models.CharField(max_length=32, default="")
     last_name = models.CharField(max_length=32, default="")
+
 
 class ConfigRef(models.Model):
     # long enough random string, to be set at generation
@@ -30,6 +33,7 @@ class ConfigRef(models.Model):
 
         super(ConfigRef, self).save(*args, **kwargs)
 
+
 class Candidate(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -39,11 +43,13 @@ class Candidate(models.Model):
     def __str__(self) -> str:
         return "{} {}".format(self.first_name, self.last_name)
 
+
 class Position(models.Model):
     position_name = models.CharField(max_length=64)
 
     def __str__(self) -> str:
         return self.position_name
+
 
 class Config(models.Model):
     config_ref = models.ForeignKey(ConfigRef, on_delete=models.PROTECT)
@@ -52,6 +58,7 @@ class Config(models.Model):
 
     def __str__(self) -> str:
         return "Config {}: {} pour {}".format(self.config_ref, self.candidate, self.position)
+
 
 @receiver(pre_save, sender=Config)
 def check_config(sender, instance, **kwargs):

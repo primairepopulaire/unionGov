@@ -48,6 +48,7 @@ services:
       - .:/code
     environment:
       - API_HOST=${API_HOST}
+      - DEBUG=False
     ports:
       - "8000:8000"
     labels:
