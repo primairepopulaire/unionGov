@@ -24,6 +24,8 @@ SECRET_KEY=my_secret_key_no_inverted_commas
 DB_NAME=name_of_postgres_db_to_use
 DB_USER=name_of_postgres_user
 DB_PASSWORD=password_for_postgres_db
+DB_HOST=eg_localhost
+DB_PORT=eg_5432_for_postgres
 ```
 * generate the database with `python manage.py migrate`,
 * populate the database with `python manage.py loaddata --app gov default` (which recovers the data from the `gov/fixtures/default.yaml` file),

@@ -1,0 +1,82 @@
+version: "3.3"
+
+services:
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=mail@tandabany.fr"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+  db:
+    image: postgres:latest
+    volumes:
+      - /home/sattisvar/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_HOST}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+  migration:
+    build: .
+    image: app
+    command: bash -c "
+        pipenv run python unionGov/manage.py makemigrations
+        && pipenv run python unionGov/manage.py migrate
+        && pipenv run python unionGov/manage.py loaddata --app gov default"
+    volumes:
+      - .:/code
+    environment:
+      - API_HOST=${API_HOST}
+    links:
+      - db
+    depends_on:
+      - db
+  api:
+    image: app
+    command: pipenv run python unionGov/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    environment:
+      - API_HOST=${API_HOST}
+    ports:
+      - "8000:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.mywebserver-redirect-websecure.redirectscheme.scheme=https"
+      - "traefik.http.routers.bweb.middlewares=mywebserver-redirect-websecure"
+      - "traefik.http.routers.bweb.rule=Host(`uniongov.tandabany.fr`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.bweb.entrypoints=web"
+      - "traefik.http.routers.bwebsecure.rule=Host(`uniongov.tandabany.fr`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.bwebsecure.entrypoints=websecure"
+      - "traefik.http.routers.bwebsecure.tls.certresolver=myresolver"
+      - "traefik.http.routers.bwebsecure.tls=true"
+    links:
+      - db
+    depends_on:
+      - migration
+  front:
+    build: frontend
+    environment:
+      - API_HOST=${API_HOST}
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.mywebserver-redirect-websecure.redirectscheme.scheme=https"
+      - "traefik.http.routers.fweb.middlewares=mywebserver-redirect-websecure"
+      - "traefik.http.routers.fweb.rule=Host(`uniongov.tandabany.fr`)"
+      - "traefik.http.routers.fweb.entrypoints=web"
+      - "traefik.http.routers.fwebsecure.rule=Host(`uniongov.tandabany.fr`)"
+      - "traefik.http.routers.fwebsecure.entrypoints=websecure"
+      - "traefik.http.routers.fwebsecure.tls.certresolver=myresolver"
+      - "traefik.http.routers.fwebsecure.tls=true"
