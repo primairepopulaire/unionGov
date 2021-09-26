@@ -11,7 +11,7 @@ export type Props = EmptyRecord;
 
 /**
  * ShareButton container
- * Handles what to trigger when the optionnaly displayed Button is clicked on
+ * Handles what to trigger when the optional Button is clicked on
  */
 const ShareButton: FunctionComponent<Props> = () => {
   const dispatch = useAppDispatch();
