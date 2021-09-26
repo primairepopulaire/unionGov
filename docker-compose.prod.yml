@@ -21,21 +21,21 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - /home/sattisvar/data/db:/var/lib/postgresql/data
+      - ${HOME}/data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=${DB_HOST}
+      - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
   migration:
     build: .
     image: app
     command: bash -c "
-        pipenv run python unionGov/manage.py makemigrations
-        && pipenv run python unionGov/manage.py migrate
+        pipenv run python unionGov/manage.py migrate
         && pipenv run python unionGov/manage.py loaddata --app gov default"
     volumes:
       - .:/code
     environment:
+      - DEBUG=False
       - API_HOST=${API_HOST}
     links:
       - db
