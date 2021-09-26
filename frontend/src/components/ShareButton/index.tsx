@@ -52,11 +52,18 @@ const ShareButton: FunctionComponent<Props> = memo(
           Partager
         </Button>
       </div>
-      {!!missingPositionCount && <div className="row mx-4 mt-2">
-        <Typography className="flex-fill pr-2" variant="caption" color="primary">
-          Encore {missingPositionCount} poste à attribuer avant de pouvoir partager
-        </Typography>
-      </div>}
+      {!!missingPositionCount && (
+        <div className="row mx-4 mt-2">
+          <Typography
+            className="flex-fill pr-2"
+            variant="caption"
+            color="primary"
+          >
+            Encore {missingPositionCount} poste{missingPositionCount > 1 ? 's' : ''} à
+            attribuer
+          </Typography>
+        </div>
+      )}
     </div>
   )
 );

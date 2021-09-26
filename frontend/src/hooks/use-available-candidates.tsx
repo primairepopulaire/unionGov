@@ -12,7 +12,9 @@ type TaggedCandidate = Candidates[0] & {
 type Gov = ReturnType<typeof governmentSelector>;
 
 const mapper = (candidates: Candidates, userGov: Gov): TaggedCandidate[] => {
-  const govCandidateIds = Object.values(userGov);
+  const govCandidateIds = Object.values(userGov)
+    .map(conf => conf?.candidateId)
+    .filter(id => !!id);
 
   return candidates.map(can => ({
     ...can,

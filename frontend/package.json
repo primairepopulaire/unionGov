@@ -28,6 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint . --ext .ts",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

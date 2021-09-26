@@ -11,7 +11,7 @@ const useMissingGovernmentPositionCount = (): undefined | number => {
   // can't be computed if we don't even have available positions to start with
   if (!positionIds?.length) return;
 
-  return positionIds.filter((positionId) => !government[positionId]).length;
+  return positionIds.filter((positionId) => !government[positionId]?.candidateId).length;
 };
 
 export default useMissingGovernmentPositionCount;
