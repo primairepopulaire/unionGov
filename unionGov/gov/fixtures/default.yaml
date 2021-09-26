@@ -1,172 +1,4 @@
 -   model: gov.configref
-    pk: 1
-    fields:
-        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUa
-        save_date: 2021-07-20 13:09:35+00:00
-        user: null
--   model: gov.configref
-    pk: 2
-    fields:
-        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUt
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 3
-    fields:
-        config_ref: DCDQZ28ZyohLmDQb38NOjpGo35H7ixcC
-        save_date: 2021-08-01 13:09:28.193000+00:00
-        user: null
--   model: gov.configref
-    pk: 4
-    fields:
-        config_ref: prjPeSBVEophfdAIDrFFxI3bsjROkZQc
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 5
-    fields:
-        config_ref: sFEOq9dKCwAQZzhI5Ly46fICjjpmIMz8
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 6
-    fields:
-        config_ref: OJKI9tK4ahF4Bzx8RIq1G0wTx7taq2mR
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 7
-    fields:
-        config_ref: 2Pmigop7QLF0Ss3HkS4QSyUjFO9sEef2
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 8
-    fields:
-        config_ref: 70icuU6QJ7i8GyeplDF2HbPYgTvF3rax
-        save_date: 2021-08-01 13:16:09.721000+00:00
-        user: null
--   model: gov.configref
-    pk: 9
-    fields:
-        config_ref: jyghOxUZucikAG3b8GXg82akgOH4FgSo
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 10
-    fields:
-        config_ref: 4stKhp5cH3F2BfTB4DvQrQPldvxmTzOa
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 11
-    fields:
-        config_ref: gc3Z7gmFIa3W0pSB1xkV0nxcyWjBbDfX
-        save_date: 2021-08-01 13:14:28.676000+00:00
-        user: null
--   model: gov.configref
-    pk: 12
-    fields:
-        config_ref: agC7ut7hcoj0GLqAe71tIfcd3q7VEnOb
-        save_date: 2021-08-01 13:15:21.049000+00:00
-        user: null
--   model: gov.configref
-    pk: 13
-    fields:
-        config_ref: T5tx6HkRKb1BeO8jcV2z24OSxsG49Lau
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 14
-    fields:
-        config_ref: M22HgHokBD0kFi8P0VnRaxroP8T2OfCN
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 15
-    fields:
-        config_ref: QdjgRHqGaK46JRSxPEnE38ocJrkqFKnQ
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 16
-    fields:
-        config_ref: BgZV2QUZjAxeaQNU1lZEyYmRUlzkxEz3
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 17
-    fields:
-        config_ref: HXgiTajFYS6p24HNIcb94lDprbrYTSWi
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 18
-    fields:
-        config_ref: eJUZxVfuDYQbBuFIUh1jh9ezbGx7SDqg
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 19
-    fields:
-        config_ref: GSd5DKtznltNfGgHhifxTpUbmy7kNXu4
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 20
-    fields:
-        config_ref: u3kyjOUgWyxyf8nB6Q9MHgYbGjVgFdm5
-        save_date: 2021-08-01 15:42:50.626000+00:00
-        user: null
--   model: gov.configref
-    pk: 21
-    fields:
-        config_ref: MH8d8tRfH9ocbKE9KhgnZTuokybkO9dS
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 22
-    fields:
-        config_ref: 1kQTwsGx0RwGcq3vpYk1sFWuL26QyuRL
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 23
-    fields:
-        config_ref: nNcrLppvsttez0XoCQaedQQqOoafSWgL
-        save_date: 2021-08-01 15:44:40.581000+00:00
-        user: null
--   model: gov.configref
-    pk: 24
-    fields:
-        config_ref: voagzieb4fK7aPFNiIyVpiTlaK6tVj3E
-        save_date: 2021-08-01 15:48:11.536000+00:00
-        user: null
--   model: gov.configref
-    pk: 25
-    fields:
-        config_ref: pNCPS2Z6Qpm3DTQC1wlb9VQ1n1kVq0cW
-        save_date: 2021-08-01 15:58:03.651000+00:00
-        user: null
--   model: gov.configref
-    pk: 26
-    fields:
-        config_ref: gQrTRNCFlM5kO5OSUcEPi2nZDkDPnvsM
-        save_date: 2021-08-01 15:59:38.081000+00:00
-        user: null
--   model: gov.configref
-    pk: 27
-    fields:
-        config_ref: SUAFmksYX30oG09N6DyPSRcaz401AJKr
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 28
-    fields:
-        config_ref: 2L3xgK74Gsagk2qeHPQARoEwQMV5yqtR
-        save_date: 2021-08-01 16:02:00.130000+00:00
-        user: null
--   model: gov.configref
     pk: 29
     fields:
         config_ref: 9ZDoWi5UKzCo7WiK1uCZirX60WQJS2VA
@@ -182,6 +14,30 @@
     pk: 31
     fields:
         config_ref: Y9qJKOD7OzeqTw5kOOyAhVIUvpqN3KSA
+        save_date: null
+        user: null
+-   model: gov.configref
+    pk: 32
+    fields:
+        config_ref: Fr64uDlPeRqOor7yCvezlHk00OWsHtYF
+        save_date: 2021-08-20 16:42:47.055000+00:00
+        user: null
+-   model: gov.configref
+    pk: 33
+    fields:
+        config_ref: tWSW0orK01hTm6ASfCV389nc4Z3NYE1y
+        save_date: 2021-08-20 16:42:52.370000+00:00
+        user: null
+-   model: gov.configref
+    pk: 34
+    fields:
+        config_ref: t9zzd08qkscr4nEUXuMwGVa56dVW4Xwg
+        save_date: null
+        user: null
+-   model: gov.configref
+    pk: 35
+    fields:
+        config_ref: mqvAWjOCYy9eeUtBRd3tOVPiH5oHr0Ul
         save_date: null
         user: null
 -   model: gov.candidate
@@ -260,7 +116,7 @@
         first_name: Arnaud
         last_name: Montebourg
         image_file: ''
-        image_url: https://www.parrainages-primairepopulaire.fr/file/1f118c55b3bef0bf96bba1a89fe7495112559c7a9f467154975ecaa3033e723a.png
+        image_url: https://www.parrainages-primairepopulaire.fr/file/72f2a4ed5fa365ecc046d47beb6717fea2c6155a52a1954b9d8551a6fafa3017.png
 -   model: gov.candidate
     pk: 14
     fields:
@@ -289,6 +145,27 @@
         last_name: Hamon
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/c3a2c2d64f812fd146f60439216cde4b0a1dd92af9ec1dccffcff1a356c32bb3.png
+-   model: gov.candidate
+    pk: 18
+    fields:
+        first_name: Jean-Marc
+        last_name: Jancovici
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/e891c3712b7a57e866299f71209dcdacf68321b269b47310a2149a761536cac1.png
+-   model: gov.candidate
+    pk: 19
+    fields:
+        first_name: Raphaël
+        last_name: Glucksmann
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/0cdce8c0967a91dcd347d7098148c5c9f999fee72b970856f25a7a202fab74a7.png
+-   model: gov.candidate
+    pk: 20
+    fields:
+        first_name: Cyril
+        last_name: Dion
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/851fc0a55c34f5e0cee14b5be257d8bf1d239e79b4dbd73c8acb94297220561a.png
 -   model: gov.position
     pk: 1
     fields:
@@ -300,7 +177,7 @@
 -   model: gov.position
     pk: 3
     fields:
-        position_name: Ministre des Affaires Étrangères
+        position_name: Ministre de l'Europe et des Affaires Étrangères
 -   model: gov.position
     pk: 4
     fields:
@@ -312,11 +189,11 @@
 -   model: gov.position
     pk: 6
     fields:
-        position_name: Ministre de l'Éducation Nationale
+        position_name: Ministre de l'Éducation Nationale, de la Jeunesse et des Sports
 -   model: gov.position
     pk: 8
     fields:
-        position_name: Ministre de la Santé
+        position_name: Ministre des Solidarités et de la Santé
 -   model: gov.position
     pk: 9
     fields:
@@ -324,348 +201,231 @@
 -   model: gov.position
     pk: 11
     fields:
-        position_name: Ministre de l'Enseignement Supérieur et de la Recherche
+        position_name: Ministre de l'Enseignement Supérieur, de la Recherche et de
+            l'Innovation
 -   model: gov.position
     pk: 14
     fields:
-        position_name: Ministre de l'Agriculture
+        position_name: Ministre de l'Agriculture et de l'Alimentation
 -   model: gov.position
     pk: 15
     fields:
-        position_name: Ministre de l'Économie et des Finances
--   model: gov.config
-    pk: 7
-    fields:
-        config_ref: 3
-        position: 1
-        candidate: 10
--   model: gov.config
-    pk: 8
-    fields:
-        config_ref: 3
-        position: 2
-        candidate: 7
--   model: gov.config
-    pk: 10
-    fields:
-        config_ref: 2
-        position: 2
-        candidate: 4
--   model: gov.config
-    pk: 11
-    fields:
-        config_ref: 2
-        position: 3
-        candidate: 6
--   model: gov.config
-    pk: 13
-    fields:
-        config_ref: 2
-        position: 5
-        candidate: 5
--   model: gov.config
-    pk: 14
-    fields:
-        config_ref: 2
-        position: 6
-        candidate: 8
--   model: gov.config
-    pk: 15
-    fields:
-        config_ref: 2
-        position: 4
-        candidate: 7
--   model: gov.config
+        position_name: Ministre de l'Économie, des Finances et de la Relance
+-   model: gov.position
     pk: 16
     fields:
-        config_ref: 2
-        position: 8
-        candidate: 9
--   model: gov.config
+        position_name: Ministre des Armées
+-   model: gov.position
     pk: 17
     fields:
-        config_ref: 2
-        position: 1
-        candidate: 10
--   model: gov.config
-    pk: 27
+        position_name: Ministre de l'Intérieur
+-   model: gov.position
+    pk: 18
     fields:
-        config_ref: 2
-        position: 14
-        candidate: 3
--   model: gov.config
-    pk: 28
+        position_name: Ministre du Travail, de l'Emploi et de l'Insertion
+-   model: gov.position
+    pk: 19
     fields:
-        config_ref: 3
-        position: 3
-        candidate: 8
--   model: gov.config
-    pk: 48
+        position_name: Ministre des Outre-mer
+-   model: gov.position
+    pk: 20
     fields:
-        config_ref: 1
-        position: 1
-        candidate: 5
+        position_name: Ministre de la Démocratie
 -   model: gov.config
-    pk: 49
+    pk: 95
     fields:
-        config_ref: 1
-        position: 2
-        candidate: 8
--   model: gov.config
-    pk: 50
-    fields:
-        config_ref: 1
-        position: 3
-        candidate: 7
--   model: gov.config
-    pk: 52
-    fields:
-        config_ref: 1
-        position: 5
-        candidate: 6
--   model: gov.config
-    pk: 53
-    fields:
-        config_ref: 1
-        position: 4
-        candidate: 9
--   model: gov.config
-    pk: 54
-    fields:
-        config_ref: 12
-        position: 1
-        candidate: 17
--   model: gov.config
-    pk: 55
-    fields:
-        config_ref: 12
-        position: 2
-        candidate: 12
--   model: gov.config
-    pk: 56
-    fields:
-        config_ref: 12
-        position: 3
-        candidate: 13
--   model: gov.config
-    pk: 57
-    fields:
-        config_ref: 12
-        position: 4
-        candidate: 3
--   model: gov.config
-    pk: 58
-    fields:
-        config_ref: 8
-        position: 1
-        candidate: 8
--   model: gov.config
-    pk: 59
-    fields:
-        config_ref: 8
-        position: 2
-        candidate: 12
--   model: gov.config
-    pk: 60
-    fields:
-        config_ref: 8
-        position: 3
-        candidate: 14
--   model: gov.config
-    pk: 61
-    fields:
-        config_ref: 8
-        position: 4
-        candidate: 10
--   model: gov.config
-    pk: 62
-    fields:
-        config_ref: 18
-        position: 1
-        candidate: 5
--   model: gov.config
-    pk: 63
-    fields:
-        config_ref: 19
-        position: 1
-        candidate: 17
--   model: gov.config
-    pk: 64
-    fields:
-        config_ref: 20
+        config_ref: 32
         position: 1
         candidate: 11
 -   model: gov.config
-    pk: 65
+    pk: 96
     fields:
-        config_ref: 20
+        config_ref: 32
         position: 2
-        candidate: 12
--   model: gov.config
-    pk: 66
-    fields:
-        config_ref: 20
-        position: 3
-        candidate: 17
--   model: gov.config
-    pk: 67
-    fields:
-        config_ref: 20
-        position: 4
         candidate: 16
 -   model: gov.config
-    pk: 68
+    pk: 97
     fields:
-        config_ref: 20
-        position: 5
+        config_ref: 32
+        position: 3
         candidate: 15
 -   model: gov.config
-    pk: 69
+    pk: 98
     fields:
-        config_ref: 23
-        position: 1
-        candidate: 14
--   model: gov.config
-    pk: 70
-    fields:
-        config_ref: 23
-        position: 2
-        candidate: 12
--   model: gov.config
-    pk: 71
-    fields:
-        config_ref: 23
-        position: 3
-        candidate: 5
--   model: gov.config
-    pk: 72
-    fields:
-        config_ref: 24
-        position: 1
+        config_ref: 32
+        position: 4
         candidate: 9
 -   model: gov.config
-    pk: 73
+    pk: 99
     fields:
-        config_ref: 24
-        position: 2
-        candidate: 8
--   model: gov.config
-    pk: 74
-    fields:
-        config_ref: 24
-        position: 3
-        candidate: 5
--   model: gov.config
-    pk: 75
-    fields:
-        config_ref: 25
-        position: 1
+        config_ref: 32
+        position: 5
         candidate: 13
 -   model: gov.config
-    pk: 76
+    pk: 100
     fields:
-        config_ref: 25
-        position: 2
-        candidate: 17
--   model: gov.config
-    pk: 77
-    fields:
-        config_ref: 25
-        position: 3
-        candidate: 9
--   model: gov.config
-    pk: 78
-    fields:
-        config_ref: 25
-        position: 4
-        candidate: 16
--   model: gov.config
-    pk: 79
-    fields:
-        config_ref: 26
-        position: 1
-        candidate: 14
--   model: gov.config
-    pk: 80
-    fields:
-        config_ref: 26
-        position: 2
-        candidate: 4
--   model: gov.config
-    pk: 81
-    fields:
-        config_ref: 26
-        position: 3
-        candidate: 6
--   model: gov.config
-    pk: 82
-    fields:
-        config_ref: 26
-        position: 4
-        candidate: 8
--   model: gov.config
-    pk: 83
-    fields:
-        config_ref: 26
-        position: 5
-        candidate: 12
--   model: gov.config
-    pk: 84
-    fields:
-        config_ref: 28
-        position: 1
-        candidate: 5
--   model: gov.config
-    pk: 85
-    fields:
-        config_ref: 28
-        position: 2
-        candidate: 13
--   model: gov.config
-    pk: 87
-    fields:
-        config_ref: 28
-        position: 4
-        candidate: 12
--   model: gov.config
-    pk: 88
-    fields:
-        config_ref: 28
-        position: 5
-        candidate: 16
--   model: gov.config
-    pk: 89
-    fields:
-        config_ref: 28
+        config_ref: 32
         position: 6
-        candidate: 17
+        candidate: 12
 -   model: gov.config
-    pk: 90
+    pk: 101
     fields:
-        config_ref: 28
-        position: 3
+        config_ref: 32
+        position: 8
+        candidate: 8
+-   model: gov.config
+    pk: 102
+    fields:
+        config_ref: 32
+        position: 9
         candidate: 3
 -   model: gov.config
-    pk: 91
+    pk: 103
     fields:
-        config_ref: 29
-        position: 1
-        candidate: 7
+        config_ref: 32
+        position: 11
+        candidate: 17
 -   model: gov.config
-    pk: 92
+    pk: 104
     fields:
-        config_ref: 29
+        config_ref: 32
+        position: 14
+        candidate: 14
+-   model: gov.config
+    pk: 105
+    fields:
+        config_ref: 32
+        position: 15
+        candidate: 10
+-   model: gov.config
+    pk: 106
+    fields:
+        config_ref: 33
         position: 2
+        candidate: 16
+-   model: gov.config
+    pk: 107
+    fields:
+        config_ref: 33
+        position: 1
+        candidate: 11
+-   model: gov.config
+    pk: 108
+    fields:
+        config_ref: 33
+        position: 5
+        candidate: 13
+-   model: gov.config
+    pk: 109
+    fields:
+        config_ref: 33
+        position: 3
+        candidate: 15
+-   model: gov.config
+    pk: 110
+    fields:
+        config_ref: 33
+        position: 4
+        candidate: 9
+-   model: gov.config
+    pk: 111
+    fields:
+        config_ref: 33
+        position: 6
+        candidate: 12
+-   model: gov.config
+    pk: 112
+    fields:
+        config_ref: 33
+        position: 8
         candidate: 8
 -   model: gov.config
-    pk: 93
+    pk: 113
     fields:
-        config_ref: 29
-        position: 3
-        candidate: 4
+        config_ref: 33
+        position: 9
+        candidate: 3
 -   model: gov.config
-    pk: 94
+    pk: 114
     fields:
-        config_ref: 29
+        config_ref: 33
+        position: 11
+        candidate: 17
+-   model: gov.config
+    pk: 115
+    fields:
+        config_ref: 33
+        position: 15
+        candidate: 10
+-   model: gov.config
+    pk: 116
+    fields:
+        config_ref: 33
+        position: 14
+        candidate: 14
+-   model: gov.config
+    pk: 117
+    fields:
+        config_ref: 34
+        position: 2
+        candidate: 16
+-   model: gov.config
+    pk: 118
+    fields:
+        config_ref: 34
+        position: 1
+        candidate: 11
+-   model: gov.config
+    pk: 119
+    fields:
+        config_ref: 34
+        position: 6
+        candidate: 12
+-   model: gov.config
+    pk: 120
+    fields:
+        config_ref: 34
         position: 4
-        candidate: 5
+        candidate: 9
+-   model: gov.config
+    pk: 121
+    fields:
+        config_ref: 34
+        position: 5
+        candidate: 13
+-   model: gov.config
+    pk: 122
+    fields:
+        config_ref: 34
+        position: 3
+        candidate: 15
+-   model: gov.config
+    pk: 123
+    fields:
+        config_ref: 34
+        position: 8
+        candidate: 8
+-   model: gov.config
+    pk: 124
+    fields:
+        config_ref: 34
+        position: 9
+        candidate: 3
+-   model: gov.config
+    pk: 125
+    fields:
+        config_ref: 34
+        position: 15
+        candidate: 10
+-   model: gov.config
+    pk: 126
+    fields:
+        config_ref: 34
+        position: 11
+        candidate: 17
+-   model: gov.config
+    pk: 127
+    fields:
+        config_ref: 34
+        position: 14
+        candidate: 14

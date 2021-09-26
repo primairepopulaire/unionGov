@@ -40,7 +40,7 @@ class Candidate(models.Model):
         return "{} {}".format(self.first_name, self.last_name)
 
 class Position(models.Model):
-    position_name = models.CharField(max_length=64)
+    position_name = models.CharField(max_length=128)
 
     def __str__(self) -> str:
         return self.position_name

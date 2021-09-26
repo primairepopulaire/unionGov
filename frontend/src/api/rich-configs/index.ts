@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { Candidate } from '../../redux/Candidates/state';
 import { Position } from '../../redux/Positions/state';
+import endpoint from '../endpoints.config';
 
 /** The driver a rich-config based on the given id */
 export const fetchRichConfigAPI = (id: number) =>
-  axios.get('/api/richConfigs/', {
+  axios.get(`${endpoint.ApiBaseUrl}/api/richConfigs/`, {
     params: {
       config_ref: id
     }
