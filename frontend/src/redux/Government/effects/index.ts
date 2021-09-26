@@ -68,7 +68,7 @@ export const shareGovernment = createAsyncThunk(
     try {
       const shareRef = await bookReference(dispatch, getState as () => RootState);
 
-      console.log('shareRef', shareRef);
+      console.log('shareRef success', shareRef);
 
       if (!shareRef) {
         throw new Error(
@@ -83,6 +83,7 @@ export const shareGovernment = createAsyncThunk(
         throw new Error('[shareGovernment] Failed to retreive couples in state');
       }
 
+      console.log('about to save couples');
       const response = await saveCouplesAPI(
         (
           Object.entries(couples).filter(([, conf]) => !!conf?.candidateId) as [
@@ -95,12 +96,14 @@ export const shareGovernment = createAsyncThunk(
           configRef: shareRef
         }))
       );
+      console.log('success saving couples');
 
       console.log('coucou unnused response (for now ?)', response);
 
       dispatch(setShareRefAction(shareRef));
       dispatch(successSavingAction());
     } catch (error) {
+      console.log('POOPOO COMES OUT', error);
       const typedError = error as Error;
       dispatch(
         errorSavingAction(

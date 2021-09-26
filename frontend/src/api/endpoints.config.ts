@@ -1,3 +1,3 @@
 export default {
-  ApiBaseUrl: process.env.API_HOST ?? ''
+  ApiBaseUrl: 'http://localhost:8000'
 }
