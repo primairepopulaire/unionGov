@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - /home/sattisvar/data/db:/var/lib/postgresql/data
+      - $HOME/tmp:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${DB_HOST}
       - POSTGRES_USER=${DB_USER}
