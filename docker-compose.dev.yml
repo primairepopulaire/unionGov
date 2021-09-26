@@ -19,6 +19,7 @@ services:
     volumes:
       - .:/code
     environment:
+      - DEBUG=True
       - API_HOST=api
     links:
       - db
@@ -30,6 +31,7 @@ services:
     volumes:
       - .:/code
     environment:
+      - DEBUG=True
       - API_HOST=api
     ports:
       - "8000:8000"
@@ -42,3 +44,5 @@ services:
     build: frontend
     ports:
       - "3000:3000"
+    environment:
+      - API_HOST=http://api:8000/
