@@ -45,7 +45,7 @@ class Candidate(models.Model):
 
 
 class Position(models.Model):
-    position_name = models.CharField(max_length=64)
+    position_name = models.CharField(max_length=128)
 
     def __str__(self) -> str:
         return self.position_name
