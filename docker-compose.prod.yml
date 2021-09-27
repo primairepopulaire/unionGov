@@ -55,9 +55,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.middlewares.mywebserver-redirect-websecure.redirectscheme.scheme=https"
       - "traefik.http.routers.bweb.middlewares=mywebserver-redirect-websecure"
-      - "traefik.http.routers.bweb.rule=Host(`uniongov.tandabany.fr`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.bweb.rule=Host(`${API_HOST}`) && PathPrefix(`/api`)"
       - "traefik.http.routers.bweb.entrypoints=web"
-      - "traefik.http.routers.bwebsecure.rule=Host(`uniongov.tandabany.fr`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.bwebsecure.rule=Host(`${API_HOST}`) && PathPrefix(`/api`)"
       - "traefik.http.routers.bwebsecure.entrypoints=websecure"
       - "traefik.http.routers.bwebsecure.tls.certresolver=myresolver"
       - "traefik.http.routers.bwebsecure.tls=true"
@@ -77,14 +77,14 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/code
+      - ./frontend:/app
     labels:
       - "traefik.enable=true"
       - "traefik.http.middlewares.mywebserver-redirect-websecure.redirectscheme.scheme=https"
       - "traefik.http.routers.fweb.middlewares=mywebserver-redirect-websecure"
-      - "traefik.http.routers.fweb.rule=Host(`uniongov.tandabany.fr`)"
+      - "traefik.http.routers.fweb.rule=Host(`${API_HOST}`)"
       - "traefik.http.routers.fweb.entrypoints=web"
-      - "traefik.http.routers.fwebsecure.rule=Host(`uniongov.tandabany.fr`)"
+      - "traefik.http.routers.fwebsecure.rule=Host(`${API_HOST}`)"
       - "traefik.http.routers.fwebsecure.entrypoints=websecure"
       - "traefik.http.routers.fwebsecure.tls.certresolver=myresolver"
       - "traefik.http.routers.fwebsecure.tls=true"
