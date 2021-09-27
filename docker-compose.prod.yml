@@ -67,10 +67,17 @@ services:
       - migration
   front:
     build: frontend
+    command: sh -c "
+        yarnpkg build
+        && yarnpkg global add serve
+        && serve -s build
+    "
     environment:
       - API_HOST=${API_HOST}
     ports:
-      - "3000:3000"
+      - "5000:5000"
+    volumes:
+      - .:/code
     labels:
       - "traefik.enable=true"
       - "traefik.http.middlewares.mywebserver-redirect-websecure.redirectscheme.scheme=https"
