@@ -7,10 +7,8 @@ exports.__esModule = true;
 var axios_1 = require("axios");
 // import console = require('console');
 console.log('Starting test script...');
-axios_1["default"].post('http://localhost:8000/api/configs/', {
-    candidate: [
+axios_1["default"].post('http://localhost:8000/api/configs/', [
         {
-            id: 216,
             config_ref: 36,
             position: 1,
             candidate: 1

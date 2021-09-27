@@ -8,22 +8,19 @@ import axios from 'axios';
 
 console.log('Starting test script...')
 
-axios.post('http://localhost:8000/api/configs/', {
-  candidate: [
+axios.post('http://localhost:8000/api/configs/', [
     {
-      id: 216,
-      config_ref: 36,
-      position: 1,
-      candidate: 1
+      config_ref: 1,
+      position: 3,
+      candidate: 5
     },
     {
-      id: 217,
-      config_ref: 36,
-      position: 2,
-      candidate: 2
+      config_ref: 1,
+      position: 8,
+      candidate: 7
     }
   ]
-}).then(response => {
+).then(response => {
   console.log('success!');
 }).catch(err => {
   console.log(err);
