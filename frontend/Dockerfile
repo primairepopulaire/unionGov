@@ -2,14 +2,12 @@ FROM node:current-alpine
 
 WORKDIR /app
 
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /node_modules/.bin:$PATH
 
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarnpkg install
+RUN yarnpkg install --modules-folder /node_modules
 
 COPY . ./
-
-RUN yarnpkg build
 
 CMD ["yarnpkg", "start"]

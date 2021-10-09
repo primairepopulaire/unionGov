@@ -1,10 +1,21 @@
 version: "3.3"
 
 services:
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:9000"
+    ports:
+      - "9000:9000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
   db:
     image: postgres:latest
     volumes:
-      - /home/sattisvar/data/db:/var/lib/postgresql/data
+      - ${DB_DIR}:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${DB_HOST}
       - POSTGRES_USER=${DB_USER}
@@ -14,13 +25,13 @@ services:
     image: app
     command: bash -c "
         pipenv run python unionGov/manage.py makemigrations
-        && pipenv run python unionGov/manage.py migrate 
+        && pipenv run python unionGov/manage.py migrate
         && pipenv run python unionGov/manage.py loaddata --app gov default"
     volumes:
       - .:/code
     environment:
       - DEBUG=True
-      - API_HOST=api
+      - API_HOST=localhost
     links:
       - db
     depends_on: 
@@ -32,9 +43,13 @@ services:
       - .:/code
     environment:
       - DEBUG=True
-      - API_HOST=api
+      - API_HOST=localhost
     ports:
       - "8000:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.bweb.rule=Host(`localhost`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.bweb.entrypoints=web"
     links:
       - db
     depends_on:
@@ -42,7 +57,14 @@ services:
 
   front:
     build: frontend
+    volumes:
+      - ./frontend:/app
     ports:
       - "3000:3000"
     environment:
-      - API_HOST=http://api:8000/
+      - API_HOST=localhost
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fweb.rule=Host(`localhost`)"
+      - "traefik.http.routers.fweb.entrypoints=web"
+
