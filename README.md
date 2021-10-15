@@ -3,15 +3,15 @@ Union Gov
 
 # Union Gov project
 A website to let people choose/vote for their preferred union government.
-[![Form page](https://github.com/primairepopulaire/unionGov/blob/master/docs/images/uniongov-tandabany.png)](https://uniongov.tandabany.fr/)
+[![Form page](docs/images/uniongov-tandabany.png)](https://uniongov.tandabany.fr/)
 
 More details about the context (in French): see [section "Contexte"](#contexte) below.
 
 ## Installation guide       
-  Check out the installation guide [here](https://github.com/primairepopulaire/unionGov/blob/master/docs/install.md)  
+  Check out the installation guide [here](docs/install.md)  
 
 ## Developer guide       
-  Check out the developer guide [here](https://github.com/primairepopulaire/unionGov/blob/master/docs/dev.md)  
+  Check out the developer guide [here](docs/dev.md)  
 
 # Contexte
 This section gives more background details about the project and is written in French ;-).
