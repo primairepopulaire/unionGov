@@ -12,6 +12,13 @@
 ## Model of object-oriented database   
 ![UML](/docs/images/uml.png)
 
+To update those image files :
+  * access [drawio](https://app.diagrams.net/)
+  * import `docs/images/uml.drawio`
+  * make the necessary updates
+  * export as a png image
+  * replace the image in the repo at `docs/images`
+
 Tables :
 
 - Utilisateurs (`users`)
