@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { fetchRichConfigAPI, fetchNewConfigRef } from '../../../api/rich-configs'
+import { fetchRichConfigAPI } from '../../../api/rich-configs'
+import { fetchNewConfigRef } from '../../../api/config-ref'
 import handleError from '../../../lib/error'
 import logger from '../../../lib/log'
 import { mapApiGovernementToStateGov } from '../lib/mapper'
