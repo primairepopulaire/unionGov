@@ -70,8 +70,7 @@ services:
     command: sh -c "
         yarnpkg build
         && yarnpkg global add serve
-        && serve -s build
-    "
+        && serve -s build"
     environment:
       - API_HOST=${API_HOST}
     ports:

@@ -18,7 +18,7 @@ const ShareButton: FunctionComponent<Props> = () => {
 
   return (
     <Component
-      isDisabled={!!missingCount}
+      isDisabled={false}
       missingPositionCount={missingCount}
       onShare={handleShare}
     />
