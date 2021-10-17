@@ -29,7 +29,15 @@ const Footer: FunctionComponent<EmptyRecord> = memo(() => (
         <Link rel="noopener" href="http://mariecasays.com/">
           Marie Casaÿs
         </Link>{' '}
-        a réalisé les illustrations des candidats.
+        a réalisé les illustrations des candidat·e·s.
+      </Typography>
+
+      <Typography className="mt-3 flex-fill" align="center">
+        Les contributions (en code !) pour ce site sont les bienvenues, voir le
+        <Link rel="noopener" href="https://github.com/primairepopulaire/unionGov">
+          dépôt GitHub
+        </Link>{' '}
+         associé.
       </Typography>
     </div>
   </footer>

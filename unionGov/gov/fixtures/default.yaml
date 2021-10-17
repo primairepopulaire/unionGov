@@ -1,45 +1,3 @@
--   model: gov.configref
-    pk: 29
-    fields:
-        config_ref: 9ZDoWi5UKzCo7WiK1uCZirX60WQJS2VA
-        save_date: 2021-08-01 16:03:04.728000+00:00
-        user: null
--   model: gov.configref
-    pk: 30
-    fields:
-        config_ref: nuDyX3Y1w1yQSB8jubQ3jUEiX4DEjYq6
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 31
-    fields:
-        config_ref: Y9qJKOD7OzeqTw5kOOyAhVIUvpqN3KSA
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 32
-    fields:
-        config_ref: Fr64uDlPeRqOor7yCvezlHk00OWsHtYF
-        save_date: 2021-08-20 16:42:47.055000+00:00
-        user: null
--   model: gov.configref
-    pk: 33
-    fields:
-        config_ref: tWSW0orK01hTm6ASfCV389nc4Z3NYE1y
-        save_date: 2021-08-20 16:42:52.370000+00:00
-        user: null
--   model: gov.configref
-    pk: 34
-    fields:
-        config_ref: t9zzd08qkscr4nEUXuMwGVa56dVW4Xwg
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 35
-    fields:
-        config_ref: mqvAWjOCYy9eeUtBRd3tOVPiH5oHr0Ul
-        save_date: null
-        user: null
 -   model: gov.candidate
     pk: 3
     fields:
@@ -61,13 +19,6 @@
         last_name: Taubira
         image_file: img/taubira_jwYRQ5q.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/ae4f6d77be9959cf29c92e3381032df7cf3eeea5c75929736799fd7e45b49ac1.png
--   model: gov.candidate
-    pk: 6
-    fields:
-        first_name: Éric
-        last_name: Piolle
-        image_file: img/piolle.png
-        image_url: https://www.parrainages-primairepopulaire.fr/file/258e3a0cf1d89f2ae1992227d303a69e122ee716a21861b39f62f26dd9bca54d.png
 -   model: gov.candidate
     pk: 7
     fields:
@@ -104,13 +55,6 @@
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/593521af5e970b7765e0905201b4e5b5eccc0108901194688e181937cf4f2bd4.png
 -   model: gov.candidate
-    pk: 12
-    fields:
-        first_name: Delphine
-        last_name: Batho
-        image_file: ''
-        image_url: https://www.parrainages-primairepopulaire.fr/file/6960e57eedc9decde10479c05b408c7de4f2c45a685a4c8481eb846e5e6fbfad.png
--   model: gov.candidate
     pk: 13
     fields:
         first_name: Arnaud
@@ -139,13 +83,6 @@
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/c077dfb8c1a39a1701e26d8225265847b2730d8f429809402e975a48761d121f.png
 -   model: gov.candidate
-    pk: 17
-    fields:
-        first_name: Benoît
-        last_name: Hamon
-        image_file: ''
-        image_url: https://www.parrainages-primairepopulaire.fr/file/c3a2c2d64f812fd146f60439216cde4b0a1dd92af9ec1dccffcff1a356c32bb3.png
--   model: gov.candidate
     pk: 18
     fields:
         first_name: Jean-Marc
@@ -166,6 +103,90 @@
         last_name: Dion
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/851fc0a55c34f5e0cee14b5be257d8bf1d239e79b4dbd73c8acb94297220561a.png
+-   model: gov.candidate
+    pk: 21
+    fields:
+        first_name: Cécile
+        last_name: Duflot
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/unnamed-300x300.jpeg
+-   model: gov.candidate
+    pk: 22
+    fields:
+        first_name: Anna Agueb
+        last_name: Porterie
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/29-agueb-porterie-dessin-1-300x300.jpg
+-   model: gov.candidate
+    pk: 23
+    fields:
+        first_name: Mathilde
+        last_name: Panot
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/26-panot-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 24
+    fields:
+        first_name: Philippe
+        last_name: Poutou
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.41-300x298.png
+-   model: gov.candidate
+    pk: 25
+    fields:
+        first_name: Adrien
+        last_name: Quatennens
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.23-300x300.png
+-   model: gov.candidate
+    pk: 26
+    fields:
+        first_name: Charlotte
+        last_name: Marchandise
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.38-300x300.png
+-   model: gov.candidate
+    pk: 27
+    fields:
+        first_name: François
+        last_name: Boulo
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.46-300x300.png
+-   model: gov.candidate
+    pk: 28
+    fields:
+        first_name: Frédéric
+        last_name: Amany
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/30-amanye-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 29
+    fields:
+        first_name: Barbara
+        last_name: Stiegler
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/25-stiegler-dessin-1-300x300.jpg
+-   model: gov.candidate
+    pk: 30
+    fields:
+        first_name: Thomas
+        last_name: Piketty
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/27-Piketty-dessin-1-300x300.jpg
+-   model: gov.candidate
+    pk: 31
+    fields:
+        first_name: Brice
+        last_name: Montagne
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/33-montagne-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 32
+    fields:
+        first_name: Bruno
+        last_name: Dallaporta
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/unnamed-1-300x300.jpeg
 -   model: gov.position
     pk: 1
     fields:
@@ -177,23 +198,12 @@
 -   model: gov.position
     pk: 3
     fields:
-        position_name: Ministre de l'Europe et des Affaires Étrangères
--   model: gov.position
-    pk: 4
-    fields:
-        position_name: Ministre de la Justice
--   model: gov.position
-    pk: 5
-    fields:
-        position_name: Ministre de la Transition Écologique
--   model: gov.position
-    pk: 6
-    fields:
-        position_name: Ministre de l'Éducation Nationale, de la Jeunesse et des Sports
+        position_name: Ministre des Affaires Étrangères, des Générations Futures et
+            des Objectifs du Développement Durable
 -   model: gov.position
     pk: 8
     fields:
-        position_name: Ministre des Solidarités et de la Santé
+        position_name: Ministre de la Santé, de la Justice Sociale et des Solidarités
 -   model: gov.position
     pk: 9
     fields:
@@ -201,231 +211,23 @@
 -   model: gov.position
     pk: 11
     fields:
-        position_name: Ministre de l'Enseignement Supérieur, de la Recherche et de
-            l'Innovation
+        position_name: Ministre de l'Éducation Nationale, de l'Enseignement Supérieur
+            et de la Recherche
 -   model: gov.position
     pk: 14
     fields:
-        position_name: Ministre de l'Agriculture et de l'Alimentation
+        position_name: Ministre de l'Agriculture, de la Sécurité Alimentaire et des
+            Transitions Écologiques et Territoriales
 -   model: gov.position
     pk: 15
     fields:
-        position_name: Ministre de l'Économie, des Finances et de la Relance
--   model: gov.position
-    pk: 16
-    fields:
-        position_name: Ministre des Armées
--   model: gov.position
-    pk: 17
-    fields:
-        position_name: Ministre de l'Intérieur
--   model: gov.position
-    pk: 18
-    fields:
-        position_name: Ministre du Travail, de l'Emploi et de l'Insertion
--   model: gov.position
-    pk: 19
-    fields:
-        position_name: Ministre des Outre-mer
+        position_name: Ministre du Climat, de l'Économie et des Finances
 -   model: gov.position
     pk: 20
     fields:
-        position_name: Ministre de la Démocratie
--   model: gov.config
-    pk: 95
+        position_name: Ministre de la Démocratie, de la Transparence et de la VIème
+            République
+-   model: gov.position
+    pk: 21
     fields:
-        config_ref: 32
-        position: 1
-        candidate: 11
--   model: gov.config
-    pk: 96
-    fields:
-        config_ref: 32
-        position: 2
-        candidate: 16
--   model: gov.config
-    pk: 97
-    fields:
-        config_ref: 32
-        position: 3
-        candidate: 15
--   model: gov.config
-    pk: 98
-    fields:
-        config_ref: 32
-        position: 4
-        candidate: 9
--   model: gov.config
-    pk: 99
-    fields:
-        config_ref: 32
-        position: 5
-        candidate: 13
--   model: gov.config
-    pk: 100
-    fields:
-        config_ref: 32
-        position: 6
-        candidate: 12
--   model: gov.config
-    pk: 101
-    fields:
-        config_ref: 32
-        position: 8
-        candidate: 8
--   model: gov.config
-    pk: 102
-    fields:
-        config_ref: 32
-        position: 9
-        candidate: 3
--   model: gov.config
-    pk: 103
-    fields:
-        config_ref: 32
-        position: 11
-        candidate: 17
--   model: gov.config
-    pk: 104
-    fields:
-        config_ref: 32
-        position: 14
-        candidate: 14
--   model: gov.config
-    pk: 105
-    fields:
-        config_ref: 32
-        position: 15
-        candidate: 10
--   model: gov.config
-    pk: 106
-    fields:
-        config_ref: 33
-        position: 2
-        candidate: 16
--   model: gov.config
-    pk: 107
-    fields:
-        config_ref: 33
-        position: 1
-        candidate: 11
--   model: gov.config
-    pk: 108
-    fields:
-        config_ref: 33
-        position: 5
-        candidate: 13
--   model: gov.config
-    pk: 109
-    fields:
-        config_ref: 33
-        position: 3
-        candidate: 15
--   model: gov.config
-    pk: 110
-    fields:
-        config_ref: 33
-        position: 4
-        candidate: 9
--   model: gov.config
-    pk: 111
-    fields:
-        config_ref: 33
-        position: 6
-        candidate: 12
--   model: gov.config
-    pk: 112
-    fields:
-        config_ref: 33
-        position: 8
-        candidate: 8
--   model: gov.config
-    pk: 113
-    fields:
-        config_ref: 33
-        position: 9
-        candidate: 3
--   model: gov.config
-    pk: 114
-    fields:
-        config_ref: 33
-        position: 11
-        candidate: 17
--   model: gov.config
-    pk: 115
-    fields:
-        config_ref: 33
-        position: 15
-        candidate: 10
--   model: gov.config
-    pk: 116
-    fields:
-        config_ref: 33
-        position: 14
-        candidate: 14
--   model: gov.config
-    pk: 117
-    fields:
-        config_ref: 34
-        position: 2
-        candidate: 16
--   model: gov.config
-    pk: 118
-    fields:
-        config_ref: 34
-        position: 1
-        candidate: 11
--   model: gov.config
-    pk: 119
-    fields:
-        config_ref: 34
-        position: 6
-        candidate: 12
--   model: gov.config
-    pk: 120
-    fields:
-        config_ref: 34
-        position: 4
-        candidate: 9
--   model: gov.config
-    pk: 121
-    fields:
-        config_ref: 34
-        position: 5
-        candidate: 13
--   model: gov.config
-    pk: 122
-    fields:
-        config_ref: 34
-        position: 3
-        candidate: 15
--   model: gov.config
-    pk: 123
-    fields:
-        config_ref: 34
-        position: 8
-        candidate: 8
--   model: gov.config
-    pk: 124
-    fields:
-        config_ref: 34
-        position: 9
-        candidate: 3
--   model: gov.config
-    pk: 125
-    fields:
-        config_ref: 34
-        position: 15
-        candidate: 10
--   model: gov.config
-    pk: 126
-    fields:
-        config_ref: 34
-        position: 11
-        candidate: 17
--   model: gov.config
-    pk: 127
-    fields:
-        config_ref: 34
-        position: 14
-        candidate: 14
+        position_name: Ministère des Droits des Femmes et de la lutte contre les Discriminations

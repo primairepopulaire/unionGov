@@ -5,13 +5,45 @@ More details about the context (in French): see [section "Contexte"](#contexte) 
 
 ## Configuration and installation
 
-In order to run this repository,
+### Using docker in prod
+
+```bash
+DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml build --no-cache
+DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml restart
+```
+
+### Using docker for devs
+
+There is a docker-compose yaml conf that put database, front-end and back-end together, with a reverse-proxy (traefik) on top of it. There are some env vars to define and you will be ready to go without installing anything :
+
+* add a file `.env` in the root of you repository
+```
+SECRET_KEY=my_secret_key_for_django
+DB_NAME=name_of_the_postgres_db_to_use
+DB_USER=name_of_postgres_user
+DB_PASSWORD=password_for_postgres_db
+DB_DIR=local/directory/where/database/will/be/stored # For persistence of data
+```
+
+* launch `docker-compose`
+```
+docker-compose -f docker-compose.dev.yml build
+docker-compose -f docker-compose.dev.yml restart
+```
+
+* access the front-end with `localhost:9000`
+* access the back-end with `localhost:9000/api/`
+* any changes to your code should be reflected live there.
+
+### Without docker for devs
+
+If you don't want to use docker, in order to run this repository,
 
 * clone the repository (*e.g.* `git clone https://github.com/primairepopulaire/unionGov.git`, but you might want to use ssh),
 * make sure `pipenv` is installed in your Python3 (if not: `sudo apt install pipenv` should work on Linux else try `python -m pip install pipenv`),
 * in the current configuration, you will need a Postgres database - `psycopg2-binary` package will be installed using `pipenv`.
 
-### Backend installation
+#### Backend installation
 
 Move to the installation folder and:
 * install dependancies from Pipfile: `pipenv sync` (NB: `pipenv install` does not assure you that versions are *exactly* those used for dev!),
@@ -34,7 +66,7 @@ DB_PORT=eg_5432_for_postgres
 
 NB: a superuser is needed, the DB user defined to access the database is not enough!
 
-### Frontend installation
+#### Frontend installation
 
 Here we assume that Node.js and `yarn` are already available on the computer. For more details see e.g. [this tutorial](https://www.digitalocean.com/community/tutorial_series/how-to-install-node-js-and-create-a-local-development-environment) and the [yarn installation instructions](https://classic.yarnpkg.com/en/docs/install#debian-stable).
 
@@ -46,15 +78,11 @@ yarnpkg install
 
 For more details, see `README.md` in the folder `frontend`.
 
-### Additional notes
-
-* In the current version, we use sqlite3 as database. In a possible production version, we would use a more permanent database.
-
-## Running the code
+#### Running the code
 
 To run the full website, you need both backend and frontend to run simultaneously. The most convenient setting may be to have two terminals, one for each part of the website.
 
-### Running the backend
+##### Running the backend
 
 From root folder, if need be: activate virtual env with:
 ```
@@ -71,7 +99,7 @@ The backend is available in three parts:
 * access to the "main" view at `http://localhost:8000/gov`,
 * API view at `http://localhost:8000/api` (more details in the view itself).
 
-### Running the frontend
+##### Running the frontend
 
 From the `frontend` folder, type:
 ```
@@ -80,7 +108,7 @@ yarnpkg start
 
 The frontend is available from `http://localhost:3000`.
 
-### Additional notes
+##### Additional notes
 
 * In the case when the frontend starts from another URL than `http://localhost:3000`, a fix can be to replace the line:
 ```

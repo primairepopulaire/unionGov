@@ -13,15 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.db import router
 from django.urls import include, path
-from django.conf import settings
-from django.conf.urls.static import static
-
-from rest_framework import routers
-
 from gov import views
+from rest_framework import routers
 
 PATH = '/img'
 ROOT = settings.BASE_DIR / 'img/'
@@ -33,7 +31,7 @@ router.register(r'richConfigs', views.RichConfigAPIView, 'richConfigs')
 router.register(r'configRefs', views.ConfigRefAPIView, 'configrefs')
 router.register(r'users', views.UserAPIView, 'users')
 router.register(r'positions', views.PositionAPIView, 'positions')
-
+router.register(r'xConfigs', views.XConfigAPIView, 'xConfigs')
 
 urlpatterns = [
     path('', include(router.urls)),
