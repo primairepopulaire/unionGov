@@ -20,13 +20,6 @@
         image_file: img/taubira_jwYRQ5q.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/ae4f6d77be9959cf29c92e3381032df7cf3eeea5c75929736799fd7e45b49ac1.png
 -   model: gov.candidate
-    pk: 7
-    fields:
-        first_name: Sandrine
-        last_name: Rousseau
-        image_file: img/rousseau.png
-        image_url: https://www.parrainages-primairepopulaire.fr/file/df641980ef61e3f30c61be04b59d52d15f9293c97e223d46ce43ea545af4a05a.png
--   model: gov.candidate
     pk: 8
     fields:
         first_name: Anne
@@ -83,13 +76,6 @@
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/c077dfb8c1a39a1701e26d8225265847b2730d8f429809402e975a48761d121f.png
 -   model: gov.candidate
-    pk: 18
-    fields:
-        first_name: Jean-Marc
-        last_name: Jancovici
-        image_file: ''
-        image_url: https://www.parrainages-primairepopulaire.fr/file/e891c3712b7a57e866299f71209dcdacf68321b269b47310a2149a761536cac1.png
--   model: gov.candidate
     pk: 19
     fields:
         first_name: Raphaël
@@ -97,33 +83,12 @@
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/0cdce8c0967a91dcd347d7098148c5c9f999fee72b970856f25a7a202fab74a7.png
 -   model: gov.candidate
-    pk: 20
-    fields:
-        first_name: Cyril
-        last_name: Dion
-        image_file: ''
-        image_url: https://www.parrainages-primairepopulaire.fr/file/851fc0a55c34f5e0cee14b5be257d8bf1d239e79b4dbd73c8acb94297220561a.png
--   model: gov.candidate
-    pk: 21
-    fields:
-        first_name: Cécile
-        last_name: Duflot
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/unnamed-300x300.jpeg
--   model: gov.candidate
     pk: 22
     fields:
-        first_name: Anna Agueb
-        last_name: Porterie
+        first_name: Anna
+        last_name: Agueb-Porterie
         image_file: ''
         image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/29-agueb-porterie-dessin-1-300x300.jpg
--   model: gov.candidate
-    pk: 23
-    fields:
-        first_name: Mathilde
-        last_name: Panot
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/26-panot-dessin-300x300.jpg
 -   model: gov.candidate
     pk: 24
     fields:
@@ -132,61 +97,12 @@
         image_file: ''
         image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.41-300x298.png
 -   model: gov.candidate
-    pk: 25
-    fields:
-        first_name: Adrien
-        last_name: Quatennens
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.23-300x300.png
--   model: gov.candidate
     pk: 26
     fields:
         first_name: Charlotte
         last_name: Marchandise
         image_file: ''
         image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.38-300x300.png
--   model: gov.candidate
-    pk: 27
-    fields:
-        first_name: François
-        last_name: Boulo
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.46-300x300.png
--   model: gov.candidate
-    pk: 28
-    fields:
-        first_name: Frédéric
-        last_name: Amany
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/30-amanye-dessin-300x300.jpg
--   model: gov.candidate
-    pk: 29
-    fields:
-        first_name: Barbara
-        last_name: Stiegler
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/25-stiegler-dessin-1-300x300.jpg
--   model: gov.candidate
-    pk: 30
-    fields:
-        first_name: Thomas
-        last_name: Piketty
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/27-Piketty-dessin-1-300x300.jpg
--   model: gov.candidate
-    pk: 31
-    fields:
-        first_name: Brice
-        last_name: Montagne
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/33-montagne-dessin-300x300.jpg
--   model: gov.candidate
-    pk: 32
-    fields:
-        first_name: Bruno
-        last_name: Dallaporta
-        image_file: ''
-        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/unnamed-1-300x300.jpeg
 -   model: gov.position
     pk: 1
     fields:
