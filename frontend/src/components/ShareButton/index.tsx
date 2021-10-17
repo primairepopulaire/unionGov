@@ -54,7 +54,7 @@ const ShareButton: FunctionComponent<Props> = memo(
       </div>
       {!!missingPositionCount && <div className="row mx-4 mt-2">
         <Typography className="flex-fill pr-2" variant="caption" color="primary">
-          Encore {missingPositionCount} poste.s à attribuer !
+          Encore {missingPositionCount} poste(s) à attribuer !
         </Typography>
       </div>}
     </div>
