@@ -8,3 +8,12 @@ export const fetchRichConfigAPI = (id: number) =>
       config_ref: id
     }
   });
+
+/** The driver a new rich-config */
+export const fetchNewRichConfigAPI = () =>
+  axios.post(`${endpoint.ApiBaseUrl}/api/configRefs/`, {
+    params: {
+      save_date: null,
+      user: null
+    }
+  });
