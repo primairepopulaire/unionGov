@@ -1,5 +1,5 @@
 # Installation guide
-From now on the **absolute path** to the working directory (any directory you want) will be mentioned as `workingDir`
+From now on the **absolute path** to the working directory (root of your repo) will be mentioned as `workingDir`
 ### Table of Contents  
 [Docker installation](#docker)  
 [Classic installation](#classic)  
@@ -11,14 +11,19 @@ From now on the **absolute path** to the working directory (any directory you wa
 * [docker-compose](https://docs.docker.com/compose/install/)
 
 ### Download Sources
-* Clone the project git repository in a specific directory
+* Clone the project git repository in a specific directory <XXX>
   ```
-  cd <workingDir>
-  git clone https://github.com/primairepopulaire/unionGov.git .
+  cd <XXX>
+  git clone <https_path_to_repo>/unionGov.git .
   ```
 * Customize your Docker environment
   * `cd <workingDir>`
   * create a file `.env` in `<workingDir>`
+  * create a folder that will contain the database persistent data
+    ```
+    cd <workingDir>
+    mkdir -p data/db
+    ```
   * copy and set up the environment parameters in your `.env` file:
     ```
     SECRET_KEY=my_secret_key_for_django
@@ -26,7 +31,7 @@ From now on the **absolute path** to the working directory (any directory you wa
     DB_NAME=uniongov
     DB_USER=user
     DB_PASSWORD=password
-    DB_DIR=~/data/db #do not change
+    DB_DIR=./data/db #do not change
     DB_PORT=5432 #do not change
     ```
 * Build Docker images defined in `docker-compose.<$env>.yml`
