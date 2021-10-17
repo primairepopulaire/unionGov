@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { fetchRichConfigAPI, fetchNewRichConfigAPI } from '../../../api/rich-configs'
+import { fetchRichConfigAPI, fetchNewConfigRef } from '../../../api/rich-configs'
 import handleError from '../../../lib/error'
 import logger from '../../../lib/log'
 import { mapApiGovernementToStateGov } from '../lib/mapper'
@@ -32,7 +32,7 @@ export const fetchNewGovernmentId = createAsyncThunk(
   'government/fetchNewId',
   async (thunkAPI) => {
     try {
-      const res = await fetchNewRichConfigAPI()
+      const res = await fetchNewConfigRef()
       if (Array.isArray(res?.data)) {
         return mapApiGovernementToStateGov(res.data);
       }
