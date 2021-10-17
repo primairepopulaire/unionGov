@@ -1,5 +1,5 @@
 # Installation guide
-From now on the **absolute path** to the working directory (any directory you want) will be mentioned as `workingDir`
+From now on the **absolute path** to the working directory (root of your repo) will be mentioned as `repoRoot`
 ### Table of Contents  
 [Docker installation](#docker)  
 [Classic installation](#classic)  
@@ -10,15 +10,22 @@ From now on the **absolute path** to the working directory (any directory you wa
 * [docker](https://docs.docker.com/engine/install/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 
-### Download Sources
-* Clone the project git repository in a specific directory
+## Download Sources
+* Clone the project git repository in a specific directory <XXX>
   ```
-  cd <workingDir>
-  git clone https://github.com/primairepopulaire/unionGov.git .
+  cd <XXX>
+  git clone <https_path_to_repo>/unionGov.git .
   ```
+
+## Setup Docker containers
 * Customize your Docker environment
-  * `cd <workingDir>`
-  * create a file `.env` in `<workingDir>`
+  * `cd <repoRoot>`
+  * create a file `.env` in `<repoRoot>`
+  * create a folder that will contain the database persistent data
+    ```
+    cd <repoRoot>
+    mkdir -p data/db
+    ```
   * copy and set up the environment parameters in your `.env` file:
     ```
     SECRET_KEY=my_secret_key_for_django
@@ -26,7 +33,7 @@ From now on the **absolute path** to the working directory (any directory you wa
     DB_NAME=uniongov
     DB_USER=user
     DB_PASSWORD=password
-    DB_DIR=~/data/db #do not change
+    DB_DIR=./data/db #do not change
     DB_PORT=5432 #do not change
     ```
 * Build Docker images defined in `docker-compose.<$env>.yml`
@@ -41,6 +48,15 @@ From now on the **absolute path** to the working directory (any directory you wa
   * front-end at `localhost:9000`
   * back-end at `localhost:9000/api/`
 
+## Troubleshooting install
+### Complete purge & create from scratch
+* Purge containers, networks and volumes
+  ```
+  cd <repoRoot>
+  docker-compose -f docker-compose.dev.yml down #remove service containers, service volumes and common network 
+  sudo rm -rf data/db/*  #remove postgresql persistent data
+  docker-compose -f docker-compose.dev.yml up -d
+  ```
 ## <a name="classic"></a>Classic installation
 ### Prerequisites
   * git
@@ -50,8 +66,8 @@ From now on the **absolute path** to the working directory (any directory you wa
   * yarn
 
 ### Download Sources
-  * Get the project git repository in `workingDir`
-   `git clone https://github.com/primairepopulaire/unionGov.git <workingDir>`
+  * Get the project git repository in `repoRoot`
+   `git clone https://github.com/primairepopulaire/unionGov.git <repoRoot>`
 
 ### Initial setup
 As long as the backend & frontend tools are not built as linux system services, you will need two terminals dedicated to run them in background.
@@ -65,7 +81,7 @@ As long as the backend & frontend tools are not built as linux system services, 
 * Set up environment variables in `unionGov` directory:
   * Create `.env` file
     ```
-    cd <workingDir>
+    cd <repoRoot>
     cd unionGov
     touch .env
     ```
@@ -80,14 +96,14 @@ As long as the backend & frontend tools are not built as linux system services, 
     ```
 * Generate the database
   `python manage.py migrate`
-* Populate the database (recovers the data from the `<workingDir>/unionGov/gov/fixtures/default.yaml` file)
+* Populate the database (recovers the data from the `<repoRoot>/unionGov/gov/fixtures/default.yaml` file)
   `python manage.py loaddata --app gov default` 
 * create a superuser to access the admin (keep memory of the credentials to access the admin view):
   `python manage.py createsuperuser`
 
 NB: a superuser is needed, the DB user defined to access the database is not enough!
 ##### Execute
-* From `workingDir`, if needed, activate virtual env:
+* From `repoRoot`, if needed, activate virtual env:
   `pipenv shell`
 * Run the server from `unionGov`:
   `python manage.py runserver`
@@ -102,14 +118,14 @@ The backend is available in three parts:
 From the `frontend` folder, install necessary packages with  `yarn`:
 * install the required packages with 
   ```
-  cd <workingDir>/frontend
+  cd <repoRoot>/frontend
   yarnpkg install
   ```
 For more details, see `README.md` in the folder `frontend`.
 ##### Execute
 From the `frontend` folder, start `yarn` server:
 ```
-cd <workingDir>/frontend
+cd <repoRoot>/frontend
 yarnpkg start
 ```
 The frontend is available from `http://localhost:3000`
