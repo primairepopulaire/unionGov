@@ -22,18 +22,20 @@ From now on the **absolute path** to the working directory (any directory you wa
   * copy and set up the environment parameters in your `.env` file:
     ```
     SECRET_KEY=my_secret_key_for_django
-    DB_NAME=name_of_the_postgres_db_to_use
-    DB_USER=name_of_postgres_user
-    DB_PASSWORD=password_for_postgres_db
-    DB_DIR=local/directory/where/database/will/be/stored # For persistence of data
+    DB_HOST=db #do not change
+    DB_NAME=uniongov
+    DB_USER=user
+    DB_PASSWORD=password
+    DB_DIR=~/data/db #do not change
+    DB_PORT=5432 #do not change
     ```
 * Build Docker images defined in `docker-compose.<$env>.yml`
   * **dev mode**: `docker-compose -f docker-compose.dev.yml build`
-  * ** prod mode**: `DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml build --no-cache`
+  * **prod mode**: `DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml build --no-cache`
   
 * Create & start the Docker containers
-  * **dev mode**: `docker-compose -f docker-compose.dev.yml restart`
-  * ** prod mode**: `DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml restart`
+  * **dev mode**: `docker-compose -f docker-compose.dev.yml up -d`
+  * **prod mode**: `DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml up -d`
   
 * Access :
   * front-end at `localhost:9000`

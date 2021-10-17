@@ -15,9 +15,9 @@ services:
   db:
     image: postgres:latest
     volumes:
-      - ${DB_DIR}:/var/lib/postgresql/data
+      - "${DB_DIR}:/var/lib/postgresql/data:rw"
     environment:
-      - POSTGRES_DB=${DB_HOST}
+      - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
   migration:
