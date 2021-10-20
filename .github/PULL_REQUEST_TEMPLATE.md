@@ -2,7 +2,13 @@
 
 <!-- Explain what is the purpose of your PR -->
 
-This PR adds/removes...
+This PR adds:
+
+* this
+
+This PR removes:
+
+* that
 
 #### Link to your ticket
 
