@@ -17,4 +17,9 @@ export type ApiGovernement = {
   position: ApiPosition;
 }[]
 
+export type ApiConfig = {
+  configRef: string;
+};
+
+
 /* eslint-disable camelcase */
