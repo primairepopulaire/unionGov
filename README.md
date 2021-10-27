@@ -1,127 +1,19 @@
-# Union Gov
+Union Gov
+=======
+
+# Union Gov project
 A website to let people choose/vote for their preferred union government.
+[![Form page](docs/images/uniongov-tandabany.png)](https://uniongov.tandabany.fr/)
 
 More details about the context (in French): see [section "Contexte"](#contexte) below.
 
-## Configuration and installation
+## Installation guide       
+  Check out the installation guide [here](docs/install.md)  
 
-### Using docker in prod
-
-```bash
-DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml build --no-cache
-DEBUG=False API_HOST=uniongov.tandabany.fr docker-compose -f docker-compose.prod.yml restart
-```
-
-### Using docker for devs
-
-There is a docker-compose yaml conf that put database, front-end and back-end together, with a reverse-proxy (traefik) on top of it. There are some env vars to define and you will be ready to go without installing anything :
-
-* add a file `.env` in the root of you repository
-```
-SECRET_KEY=my_secret_key_for_django
-DB_NAME=name_of_the_postgres_db_to_use
-DB_USER=name_of_postgres_user
-DB_PASSWORD=password_for_postgres_db
-DB_DIR=local/directory/where/database/will/be/stored # For persistence of data
-```
-
-* launch `docker-compose`
-```
-docker-compose -f docker-compose.dev.yml build
-docker-compose -f docker-compose.dev.yml restart
-```
-
-* access the front-end with `localhost:9000`
-* access the back-end with `localhost:9000/api/`
-* any changes to your code should be reflected live there.
-
-### Without docker for devs
-
-If you don't want to use docker, in order to run this repository,
-
-* clone the repository (*e.g.* `git clone https://github.com/primairepopulaire/unionGov.git`, but you might want to use ssh),
-* make sure `pipenv` is installed in your Python3 (if not: `sudo apt install pipenv` should work on Linux else try `python -m pip install pipenv`),
-* in the current configuration, you will need a Postgres database - `psycopg2-binary` package will be installed using `pipenv`.
-
-#### Backend installation
-
-Move to the installation folder and:
-* install dependancies from Pipfile: `pipenv sync` (NB: `pipenv install` does not assure you that versions are *exactly* those used for dev!),
-* activate the local environnement with `pipenv shell`.
-
-Now move to the folder `unionGov` with `cd unionGov` and:
-* add a file `.env` containing credentials under the form: 
-```
-SECRET_KEY=my_secret_key_no_inverted_commas
-DB_NAME=name_of_postgres_db_to_use
-DB_USER=name_of_postgres_user
-DB_PASSWORD=password_for_postgres_db
-DB_HOST=eg_localhost
-DB_PORT=eg_5432_for_postgres
-```
-* generate the database with `python manage.py migrate`,
-* populate the database with `python manage.py loaddata --app gov default` (which recovers the data from the `gov/fixtures/default.yaml` file),
-* create a superuser (to access the admin) with `python manage.py createsuperuser` and keep the username and password for accessing the admin view,
-* see the [section below](#running-the-backend) to see how to run the backend. 
-
-NB: a superuser is needed, the DB user defined to access the database is not enough!
-
-#### Frontend installation
-
-Here we assume that Node.js and `yarn` are already available on the computer. For more details see e.g. [this tutorial](https://www.digitalocean.com/community/tutorial_series/how-to-install-node-js-and-create-a-local-development-environment) and the [yarn installation instructions](https://classic.yarnpkg.com/en/docs/install#debian-stable).
-
-From the `frontend` folder, 
-* install the required packages with 
-```
-yarnpkg install
-```
-
-For more details, see `README.md` in the folder `frontend`.
-
-#### Running the code
-
-To run the full website, you need both backend and frontend to run simultaneously. The most convenient setting may be to have two terminals, one for each part of the website.
-
-##### Running the backend
-
-From root folder, if need be: activate virtual env with:
-```
-pipenv shell
-```
-
-Then move to `unionGov` folder and type:
-```
-python manage.py runserver
-```
-The backend is available in three parts:
-
-* the admin view (management of entities in the database) at `http://localhost:8000/admin`,
-* access to the "main" view at `http://localhost:8000/gov`,
-* API view at `http://localhost:8000/api` (more details in the view itself).
-
-##### Running the frontend
-
-From the `frontend` folder, type:
-```
-yarnpkg start
-```
-
-The frontend is available from `http://localhost:3000`.
-
-##### Additional notes
-
-* In the case when the frontend starts from another URL than `http://localhost:3000`, a fix can be to replace the line:
-```
-    "start": "react-scripts start",
-```
-by 
-```
-    "start": "HOST=localhost react-scripts start",
-```
-in the `scripts` section of the `frontend/package.json` file.
+## Developer guide       
+  Check out the developer guide [here](docs/dev.md)  
 
 # Contexte
-
 This section gives more background details about the project and is written in French ;-).
 
 Il s'agit d'un projet parallèle à la [primaire populaire](https://primairepopulaire.fr/).
@@ -156,10 +48,9 @@ Et placerait ces candidatures dans des cases correspondantes aux différentes pl
 - L'ajout des candidatures pourraient se faire manuellement au fur et à mesure
 
 Une fois le gouvernement choisi, la personne aurait la possibilité de partager son choix de gouvernement sur les réseaux sociaux.
-Et sont choix serait gardé (idéalement un lien web), afin de pouvoir dans un deuxième temps peut-être présenter des sortes de statistiques du gouvernement le plus proposé.
+Et son choix serait gardé (idéalement un lien web), afin de pouvoir dans un deuxième temps peut-être présenter des sortes de statistiques du gouvernement le plus proposé.
 
 ## Conception et fonctionnalités
-
 ### Une visite typique
 
 1. Page d'accueil du site, lien avec la Primaire Pop, le principe de la sélection d'un gouvernement d'union... Deux boutons :
@@ -184,45 +75,6 @@ Une proposition pour l'ergonomie :
 Et que juste en cliquant à un endroit sur le nom ou le dessin de la personne, on puisse choisir directement un rôle. Ainsi à chaque fois qu'un rôle est attribué, le clic sur la personne suivante enlèverai le rôle précédemment attribué et ainsi de suite.
 Une fois tous les rôles attribués, le gouvernement est généré.
 
-### Constitution de la DB
-
-Tables :
-
-- Utilisateurs (`users`)
-    - Adresse mail
-    - Prénom (optionnel)
-    - Nom (optionnel)
-- ConfigRefs (nom à spécifier !)
-
-    Essentiellement une référence pour sauvegarder les configs sauvegardées/partagées
-
-    Colonnes :
-
-    - `config_ref` (chaîne de caractères aléatoires)
-    - `save_date`
-    - `user` (si disponible)
-- Candidats (`candidates`)
-
-    Comporte les colonnes :
-
-    - candidateId
-    - Prénom
-    - Nom
-    - Lien vers image Prim Pop
-- Postes (`positions`)
-    - positionId
-    - Nom
-- Configs
-
-    Enregistre une config spécifique, en relation avec une ligne de `configRefs`
-
-    Colonnes :
-
-    - `config_ref`
-    - `position`
-    - `candidate`
-
-    La sauvegarde d'une nouvelle ligne dans Configs comporte une vérification, à savoir que le nouveau candidat et le nouveau poste ne sont pas déjà présents parmi les lignes de config associées à la référence `config_ref` courante.
 
 ### Fonctionnalités
 

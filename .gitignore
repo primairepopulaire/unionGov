@@ -134,3 +134,11 @@ img/
 
 # Node modules
 node_modules/
+
+#postgresql persistent data
+data
+data/db
+data/db/*
+
+#cache files
+*.swp
