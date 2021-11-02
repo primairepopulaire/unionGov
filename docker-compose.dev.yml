@@ -26,7 +26,7 @@ services:
     command: bash -c "
         pipenv run python unionGov/manage.py makemigrations
         && pipenv run python unionGov/manage.py migrate
-        && pipenv run python unionGov/manage.py loaddata --app gov default"
+        && pipenv run python unionGov/manage.py loaddata --app gov gov"
     volumes:
       - .:/code
     environment:

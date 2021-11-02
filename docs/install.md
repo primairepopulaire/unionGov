@@ -10,14 +10,14 @@ From now on the **absolute path** to the working directory (root of your repo) w
 * [docker](https://docs.docker.com/engine/install/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 
-## Download Sources
+### Download Sources
 * Clone the project git repository in a specific directory <XXX>
   ```
   cd <XXX>
   git clone <https_path_to_repo>/unionGov.git .
   ```
 
-## Setup Docker containers
+### Setup Docker containers
 * Customize your Docker environment
   * `cd <repoRoot>`
   * create a file `.env` in `<repoRoot>`
@@ -48,8 +48,8 @@ From now on the **absolute path** to the working directory (root of your repo) w
   * front-end at `localhost:9000`
   * back-end at `localhost:9000/api/`
 
-## Troubleshooting install
-### Complete purge & create from scratch
+### Troubleshooting install
+#### Complete purge & create from scratch
 * Purge containers, networks and volumes
   ```
   cd <repoRoot>
@@ -57,6 +57,11 @@ From now on the **absolute path** to the working directory (root of your repo) w
   sudo rm -rf data/db/*  #remove postgresql persistent data
   docker-compose -f docker-compose.dev.yml up -d
   ```
+* Recreate the containers and let them run in background mode
+  `docker-compose -f docker-compose.dev.yml up -d`
+  
+  
+
 ## <a name="classic"></a>Classic installation
 ### Prerequisites
   * git
