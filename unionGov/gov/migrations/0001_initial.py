@@ -39,10 +39,10 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='ConfigRef',
+            name='Government',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('config_ref', models.CharField(blank=True, max_length=32, unique=True)),
+                ('reference', models.CharField(blank=True, max_length=32, unique=True)),
                 ('save_date', models.DateTimeField(blank=True, null=True, verbose_name='date saved')),
                 ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, to='gov.user')),
             ],
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('candidate', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='gov.candidate')),
-                ('config_ref', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='gov.configref')),
+                ('government', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='gov.government')),
                 ('position', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='gov.position')),
             ],
         ),

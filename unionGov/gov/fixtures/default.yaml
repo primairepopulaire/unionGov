@@ -5,6 +5,7 @@
         last_name: Larrouturou
         image_file: img/larrouturou.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/8e031d3d4f56acb59944010e4597c885c026dfd914245f955242a55f3e89f3ea.png
+        running: True
 -   model: gov.candidate
     pk: 4
     fields:
@@ -12,6 +13,7 @@
         last_name: Mélenchon
         image_file: img/melanchon_ORodv9e.jpg
         image_url: https://www.parrainages-primairepopulaire.fr/file/a6ef8508ac49529fe69ac251ff9d58c39751b690450a17605ca6daeded4a0346.png
+        running: True
 -   model: gov.candidate
     pk: 5
     fields:
@@ -33,6 +35,7 @@
         last_name: Hidalgo
         image_file: img/hidalgo.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/c4dad2df5ba3e8cb904f25a5cb67ed1304aee84e06bc7c9457676db50f0fbbb4.png
+        running: True
 -   model: gov.candidate
     pk: 9
     fields:
@@ -40,6 +43,7 @@
         last_name: Ruffin
         image_file: img/ruffin.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/bba8d31bf9ab8d308f35625f13fbf83fb240118e0b20227f7a9c961672660441.png
+        running: True
 -   model: gov.candidate
     pk: 10
     fields:
@@ -47,6 +51,7 @@
         last_name: Giraud
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/92d244fa0a38551d6bcce4a9ee5b16c5cdb93b1dbf8229a8c69816de7390fb8c.png
+        running: True
 -   model: gov.candidate
     pk: 11
     fields:
@@ -54,6 +59,7 @@
         last_name: Autain
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/593521af5e970b7765e0905201b4e5b5eccc0108901194688e181937cf4f2bd4.png
+        running: True
 -   model: gov.candidate
     pk: 13
     fields:
@@ -68,6 +74,7 @@
         last_name: Jadot
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/37b6fbd29979a0f7b2e0a479e867d49afecb0c4b19b4fb35c74257971739e2ba.png
+        running: True
 -   model: gov.candidate
     pk: 15
     fields:
@@ -117,6 +124,7 @@
         last_name: Porterie
         image_file: ''
         image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/29-agueb-porterie-dessin-1-300x300.jpg
+        running: True
 -   model: gov.candidate
     pk: 23
     fields:
@@ -145,6 +153,7 @@
         last_name: Marchandise
         image_file: ''
         image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.38-300x300.png
+        running: True
 -   model: gov.candidate
     pk: 27
     fields:
@@ -191,43 +200,53 @@
     pk: 1
     fields:
         position_name: Président.e
+        slug: president
 -   model: gov.position
     pk: 2
     fields:
         position_name: Premier.ère Ministre
+        slug: prime_minister
 -   model: gov.position
     pk: 3
     fields:
         position_name: Ministre des Affaires Étrangères, des Générations Futures et
             des Objectifs du Développement Durable
+        slug: foreign_affairs
 -   model: gov.position
     pk: 8
     fields:
         position_name: Ministre de la Santé, de la Justice Sociale et des Solidarités
+        slug: health
 -   model: gov.position
     pk: 9
     fields:
         position_name: Ministre de la Culture
+        slug: culture
 -   model: gov.position
     pk: 11
     fields:
         position_name: Ministre de l'Éducation Nationale, de l'Enseignement Supérieur
             et de la Recherche
+        slug: education
 -   model: gov.position
     pk: 14
     fields:
         position_name: Ministre de l'Agriculture, de la Sécurité Alimentaire et des
             Transitions Écologiques et Territoriales
+        slug: agriculture
 -   model: gov.position
     pk: 15
     fields:
         position_name: Ministre du Climat, de l'Économie et des Finances
+        slug: finance
 -   model: gov.position
     pk: 20
     fields:
         position_name: Ministre de la Démocratie, de la Transparence et de la VIème
             République
+        slug: democracy
 -   model: gov.position
     pk: 21
     fields:
         position_name: Ministère des Droits des Femmes et de la lutte contre les Discriminations
+        slug: human_rights

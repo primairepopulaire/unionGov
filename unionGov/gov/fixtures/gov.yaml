@@ -1,21 +1,4 @@
--   model: gov.configref
-    pk: 1
-    fields:
-        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUa
-        save_date: 2021-07-20 13:09:35+00:00
-        user: null
--   model: gov.configref
-    pk: 2
-    fields:
-        config_ref: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUt
-        save_date: null
-        user: null
--   model: gov.configref
-    pk: 3
-    fields:
-        config_ref: DCDQZ28ZyohLmDQb38NOjpGo35H7ixcC
-        save_date: null
-        user: null
+################### SETUP CANDIDATES #########################
 -   model: gov.candidate
     pk: 3
     fields:
@@ -23,13 +6,15 @@
         last_name: Larrouturou
         image_file: img/larrouturou.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/8e031d3d4f56acb59944010e4597c885c026dfd914245f955242a55f3e89f3ea.png
+        running: True
 -   model: gov.candidate
     pk: 4
     fields:
         first_name: Jean-Luc
-        last_name: Mélanchon
+        last_name: Mélenchon
         image_file: img/melanchon_ORodv9e.jpg
         image_url: https://www.parrainages-primairepopulaire.fr/file/a6ef8508ac49529fe69ac251ff9d58c39751b690450a17605ca6daeded4a0346.png
+        running: True
 -   model: gov.candidate
     pk: 5
     fields:
@@ -40,97 +25,349 @@
 -   model: gov.candidate
     pk: 6
     fields:
-        first_name: Éric
-        last_name: Piolle
-        image_file: img/piolle.png
-        image_url: https://www.parrainages-primairepopulaire.fr/file/258e3a0cf1d89f2ae1992227d303a69e122ee716a21861b39f62f26dd9bca54d.png
--   model: gov.candidate
-    pk: 7
-    fields:
         first_name: Sandrine
         last_name: Rousseau
         image_file: img/rousseau.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/df641980ef61e3f30c61be04b59d52d15f9293c97e223d46ce43ea545af4a05a.png
 -   model: gov.candidate
-    pk: 8
+    pk: 7
     fields:
         first_name: Anne
         last_name: Hidalgo
         image_file: img/hidalgo.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/c4dad2df5ba3e8cb904f25a5cb67ed1304aee84e06bc7c9457676db50f0fbbb4.png
+        running: True
 -   model: gov.candidate
-    pk: 9
+    pk: 8
     fields:
         first_name: François
         last_name: Ruffin
         image_file: img/ruffin.png
         image_url: https://www.parrainages-primairepopulaire.fr/file/bba8d31bf9ab8d308f35625f13fbf83fb240118e0b20227f7a9c961672660441.png
+        running: True
 -   model: gov.candidate
-    pk: 10
+    pk: 9
     fields:
         first_name: Gaël
         last_name: Giraud
         image_file: ''
         image_url: https://www.parrainages-primairepopulaire.fr/file/92d244fa0a38551d6bcce4a9ee5b16c5cdb93b1dbf8229a8c69816de7390fb8c.png
+        running: True
+-   model: gov.candidate
+    pk: 10
+    fields:
+        first_name: Clémentine
+        last_name: Autain
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/593521af5e970b7765e0905201b4e5b5eccc0108901194688e181937cf4f2bd4.png
+        running: True
+-   model: gov.candidate
+    pk: 11
+    fields:
+        first_name: Arnaud
+        last_name: Montebourg
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/72f2a4ed5fa365ecc046d47beb6717fea2c6155a52a1954b9d8551a6fafa3017.png
+-   model: gov.candidate
+    pk: 12
+    fields:
+        first_name: Yannick
+        last_name: Jadot
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/37b6fbd29979a0f7b2e0a479e867d49afecb0c4b19b4fb35c74257971739e2ba.png
+        running: True
+-   model: gov.candidate
+    pk: 13
+    fields:
+        first_name: Fabien
+        last_name: Roussel
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/7f398a91da28808d45354b43d424eb13c259206f97c264e6790321fde66bf240.png
+-   model: gov.candidate
+    pk: 14
+    fields:
+        first_name: Gérard
+        last_name: Filoche
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/c077dfb8c1a39a1701e26d8225265847b2730d8f429809402e975a48761d121f.png
+-   model: gov.candidate
+    pk: 15
+    fields:
+        first_name: Jean-Marc
+        last_name: Jancovici
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/e891c3712b7a57e866299f71209dcdacf68321b269b47310a2149a761536cac1.png
+-   model: gov.candidate
+    pk: 16
+    fields:
+        first_name: Raphaël
+        last_name: Glucksmann
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/0cdce8c0967a91dcd347d7098148c5c9f999fee72b970856f25a7a202fab74a7.png
+-   model: gov.candidate
+    pk: 17
+    fields:
+        first_name: Cyril
+        last_name: Dion
+        image_file: ''
+        image_url: https://www.parrainages-primairepopulaire.fr/file/851fc0a55c34f5e0cee14b5be257d8bf1d239e79b4dbd73c8acb94297220561a.png
+-   model: gov.candidate
+    pk: 18
+    fields:
+        first_name: Cécile
+        last_name: Duflot
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/unnamed-300x300.jpeg
+-   model: gov.candidate
+    pk: 19
+    fields:
+        first_name: Anna Agueb
+        last_name: Porterie
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/29-agueb-porterie-dessin-1-300x300.jpg
+        running: True
+-   model: gov.candidate
+    pk: 20
+    fields:
+        first_name: Mathilde
+        last_name: Panot
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/08/26-panot-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 21
+    fields:
+        first_name: Philippe
+        last_name: Poutou
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.41-300x298.png
+-   model: gov.candidate
+    pk: 22
+    fields:
+        first_name: Adrien
+        last_name: Quatennens
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.47.23-300x300.png
+-   model: gov.candidate
+    pk: 23
+    fields:
+        first_name: Charlotte
+        last_name: Marchandise
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.38-300x300.png
+        running: True
+-   model: gov.candidate
+    pk: 24
+    fields:
+        first_name: François
+        last_name: Boulo
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/07/Capture-de%CC%81cran-2021-07-20-a%CC%80-16.46.46-300x300.png
+-   model: gov.candidate
+    pk: 25
+    fields:
+        first_name: Frédéric
+        last_name: Amany
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/30-amanye-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 26
+    fields:
+        first_name: Barbara
+        last_name: Stiegler
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/25-stiegler-dessin-1-300x300.jpg
+-   model: gov.candidate
+    pk: 27
+    fields:
+        first_name: Thomas
+        last_name: Piketty
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/27-Piketty-dessin-1-300x300.jpg
+-   model: gov.candidate
+    pk: 28
+    fields:
+        first_name: Brice
+        last_name: Montagne
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/33-montagne-dessin-300x300.jpg
+-   model: gov.candidate
+    pk: 29
+    fields:
+        first_name: Bruno
+        last_name: Dallaporta
+        image_file: ''
+        image_url: https://primairepopulaire.fr/wp-content/uploads/2021/09/unnamed-1-300x300.jpeg
+
+################### SETUP POSITIONS #########################
 -   model: gov.position
     pk: 1
     fields:
         position_name: Président.e
+        slug: president
 -   model: gov.position
     pk: 2
     fields:
         position_name: Premier.ère Ministre
+        slug: prime_minister
 -   model: gov.position
     pk: 3
     fields:
-        position_name: Affaires Étrangères
+        position_name: Ministre des Affaires Étrangères, des Générations Futures et
+            des Objectifs du Développement Durable
+        slug: foreign_affairs
 -   model: gov.position
     pk: 4
     fields:
-        position_name: Justice
+        position_name: Ministre de la Santé, de la Justice Sociale et des Solidarités
+        slug: health
 -   model: gov.position
     pk: 5
     fields:
-        position_name: Transition Écologique
+        position_name: Ministre de la Culture
+        slug: culture
 -   model: gov.position
     pk: 6
     fields:
-        position_name: Éducation Nationale
+        position_name: Ministre de l'Éducation Nationale, de l'Enseignement Supérieur
+            et de la Recherche
+        slug: education
+-   model: gov.position
+    pk: 7
+    fields:
+        position_name: Ministre de l'Agriculture, de la Sécurité Alimentaire et des
+            Transitions Écologiques et Territoriales
+        slug: agriculture
 -   model: gov.position
     pk: 8
     fields:
-        position_name: Santé
+        position_name: Ministre du Climat, de l'Économie et des Finances
+        slug: finance
 -   model: gov.position
     pk: 9
     fields:
-        position_name: Culture
+        position_name: Ministre de la Démocratie, de la Transparence et de la VIème
+            République
+        slug: democracy
 -   model: gov.position
-    pk: 11
+    pk: 10
     fields:
-        position_name: Ens. Sup et Recherche
--   model: gov.position
-    pk: 14
+        position_name: Ministère des Droits des Femmes et de la lutte contre les Discriminations
+        slug: human_rights
+
+################### SETUP CONFIGS #########################
+-   model: gov.government
+    pk: 1
     fields:
-        position_name: Agriculture
--   model: gov.position
-    pk: 15
+        reference: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUa
+        save_date: 2021-07-20 13:09:35+00:00
+        user: null
+-   model: gov.government
+    pk: 2
     fields:
-        position_name: Économie et Finances
+        reference: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUb
+        save_date: 2021-07-20 13:09:35+00:00
+        user: null
+
+        #-   model: gov.government
+        #    pk: 2
+        #    fields:
+        #        reference: akIzgxXK0mSdiWumzSnaTSgYCyKGzmUt
+        #        save_date: null
+        #        user: null
+        #-   model: gov.government
+        #    pk: 3
+        #    fields:
+        #        reference: DCDQZ28ZyohLmDQb38NOjpGo35H7ixcC
+        #        save_date: null
+        #        user: null
 -   model: gov.config
     pk: 1
     fields:
-        config_ref: 1
+        government: 1
         position: 1
-        candidate: 5
+        candidate: 3
 -   model: gov.config
     pk: 2
     fields:
-        config_ref: 1
+        government: 1
         position: 2
-        candidate: 3
+        candidate: 4
+-   model: gov.config
+    pk: 3
+    fields:
+        government: 1
+        position: 3
+        candidate: 5
 -   model: gov.config
     pk: 4
     fields:
-        config_ref: 1
-        position: 3
-        candidate: 4
+        government: 1
+        position: 4
+        candidate: 6
+-   model: gov.config
+    pk: 5
+    fields:
+        government: 1
+        position: 5
+        candidate: 7
+-   model: gov.config
+    pk: 6
+    fields:
+        government: 1
+        position: 6
+        candidate: 8
+-   model: gov.config
+    pk: 7
+    fields:
+        government: 1
+        position: 7
+        candidate: 9
+-   model: gov.config
+    pk: 8
+    fields:
+        government: 1
+        position: 8
+        candidate: 10
+-   model: gov.config
+    pk: 9
+    fields:
+        government: 1
+        position: 9
+        candidate: 11
+-   model: gov.config
+    pk: 10
+    fields:
+        government: 1
+        position: 10
+        candidate: 12
+################### SETUP USERS #########################
+-   model: gov.user
+    pk: 1
+    fields:
+        email_address: alicia.keys@gmail.com
+        first_name: Alicia
+        last_name: Keys
+-   model: gov.user
+    pk: 2
+    fields:
+        email_address: tina.arena@gmail.com
+        first_name: Tina
+        last_name: Arena
+-   model: gov.user
+    pk: 3
+    fields:
+        email_address: maikel.blanco@gmail.com
+        first_name: Maikel
+        last_name: Blanco
+-   model: gov.user
+    pk: 4
+    fields:
+        email_address: eric.clapton@gmail.com
+        first_name: Eric
+        last_name: Clapton
+-   model: gov.user
+    pk: 5
+    fields:
+        email_address: elton.john@gmail.com
+        first_name: Elton
+        last_name: John

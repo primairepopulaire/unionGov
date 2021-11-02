@@ -1,24 +1,24 @@
 from rest_framework import serializers
 
-from .models import Candidate, Config, ConfigRef, Position, User
+from .models import Candidate, Config, Government, Position, User
 
 
 class CandidateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Candidate
-        fields = ('id', 'first_name', 'last_name', 'image_url')
+        fields = ('id', 'first_name', 'last_name', 'image_url','running')
 
 
 class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Position
-        fields = ('id', 'position_name')
+        fields = ('id', 'position_name','slug')
 
 
 class ConfigSerializer(serializers.ModelSerializer):
     class Meta:
         model = Config
-        fields = ('id', 'config_ref', 'position', 'candidate')
+        fields = ('id', 'government', 'position', 'candidate')
 
 
 class RichConfigSerializer(serializers.ModelSerializer):
@@ -27,24 +27,24 @@ class RichConfigSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Config
-        fields = ('id', 'config_ref', 'position', 'candidate')
+        fields = ('id', 'government', 'position', 'candidate')
 
 
-class ConfigRefSerializer(serializers.ModelSerializer):
+class GovernmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ConfigRef
-        fields = ('id', 'config_ref', 'save_date', 'user')
+        model = Government
+        fields = ('id', 'reference', 'save_date', 'user')
 
-class SConfigRefSerializer(serializers.ModelSerializer):
+class SGovernmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ConfigRef
-        fields = ('config_ref',)
+        model = Government
+        fields = ('reference',)
 
 class XConfigSerializer(serializers.ModelSerializer):
-    config_ref = SConfigRefSerializer(read_only=True)
+    government = SGovernmentSerializer(read_only=True)
     class Meta:
         model = Config
-        fields = ('id', 'config_ref', 'position', 'candidate')
+        fields = ('id', 'government', 'position', 'candidate')
 
 
 class UserSerializer(serializers.ModelSerializer):

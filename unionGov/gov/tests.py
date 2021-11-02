@@ -3,7 +3,7 @@ import pytz
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 
-from .models import Candidate, Position, ConfigRef, Config
+from .models import Candidate, Position, Government, Config
 # Create your tests here.
 
 class ConfigModelTests(TestCase):
@@ -12,7 +12,7 @@ class ConfigModelTests(TestCase):
     def test_duplicate_candidate(self):
         """ saving a config with a duplicate candidate """
         with self.assertRaises(ValidationError):
-            current_conf_ref = ConfigRef.objects.get(pk=1)
+            current_conf_ref = Government.objects.get(pk=1)
             melanchon = Candidate.objects.get(pk=4)
             justice = Position.objects.get(pk=4)
 
@@ -23,7 +23,7 @@ class ConfigModelTests(TestCase):
     def test_duplicate_position(self):
         """ saving a config with a duplicate position """
         with self.assertRaises(ValidationError):
-            current_conf_ref = ConfigRef.objects.get(pk=1)
+            current_conf_ref = Government.objects.get(pk=1)
             piolle = Candidate.objects.get(pk=6)
             prem_min = Position.objects.get(pk=2)
 
@@ -33,7 +33,7 @@ class ConfigModelTests(TestCase):
 
     def test_adding_config_to_ref(self):
         """ Saving a new config should be possible """
-        current_conf_ref = ConfigRef.objects.get(pk=1)
+        current_conf_ref = Government.objects.get(pk=1)
         piolle = Candidate.objects.get(pk=6)
         justice = Position.objects.get(pk=4)
 
@@ -55,7 +55,7 @@ class ConfigModelTests(TestCase):
         here = pytz.timezone("Europe/Paris")
         now = datetime.now(tz=here)
 
-        new_conf_ref = ConfigRef.objects.create(save_date=now)
+        new_conf_ref = Government.objects.create(save_date=now)
         piolle = Candidate.objects.get(pk=6)
         justice = Position.objects.get(pk=4)
 
@@ -71,7 +71,7 @@ class ConfigModelTests(TestCase):
 
     def test_updating_value(self):
         """ Updating an existing value should be possible """
-        current_conf_ref = ConfigRef.objects.get(pk=1)
+        current_conf_ref = Government.objects.get(pk=1)
         initial_list_length = len(Config.objects.filter(config_ref=current_conf_ref))
 
         initial_config = Config.objects.get(pk=1)
