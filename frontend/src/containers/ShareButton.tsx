@@ -30,13 +30,13 @@ const ShareButton: FunctionComponent<Props> = () => {
   }
   const config: ConfigState = useAppSelector(configSelector, shallowEqual);
   const governement: GovernmentState = useAppSelector(governmentSelector, shallowEqual)
-  const { configRef } = config
+  const { id } = config
   const handleShare = useCallback(() => {
     dispatch(setGovernmentById({ config, governement }))
-    if (configRef) {
-      copyToClipboard(PRIMARY_LINK + configRef)
+    if (id) {
+      copyToClipboard(PRIMARY_LINK + id)
     }
-  }, [configRef, governement]);
+  }, [id, governement]);
 
   return (
     <Component

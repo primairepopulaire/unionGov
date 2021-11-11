@@ -29,7 +29,7 @@ const Navigation: FunctionComponent<EmptyRecord> = () => (
         <Route
           render={({ history, location }) => (
             <Tabs
-              value={TABS.findIndex((tab) => tab.path === location.pathname)}
+              value={location.pathname === '/candidates' ? 1 : 0}
               onChange={(_, index) => {
                 if (typeof index === typeof 123 && TABS[index]) {
                   history.push(TABS[index].path);
@@ -50,6 +50,9 @@ const Navigation: FunctionComponent<EmptyRecord> = () => (
         <Switch>
           <Route path="/candidates">
             <Candidates />
+          </Route>
+          <Route path="/:id">
+            <Government />
           </Route>
           <Route path="/">
             <Government />
