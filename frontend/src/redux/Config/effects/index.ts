@@ -7,8 +7,8 @@ export const fetchNewConfigRef = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const res = await fetchNewConfigRefApi();
-      if (res?.data?.config_ref) {
-        return { configRef: res.data.config_ref };
+      if (res?.data) {
+        return { configRef: res.data.config_ref, id: res.data.id };
       }
 
       logger({

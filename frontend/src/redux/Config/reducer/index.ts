@@ -3,26 +3,26 @@ import { ApiConfig } from '../../../types/api';
 import { fetchNewConfigRef } from '../effects';
 import { initialConfigState } from '../state';
 
-type SetConfig = { configRef?: ApiConfig['configRef'] };
+type SetConfigType = { configRef?: ApiConfig['configRef'], id?: ApiConfig['id'] };
 
 const configSlice = createSlice({
   name: 'config',
   initialState: initialConfigState(),
   reducers: {
-    setConfigRef: (state: any, { payload: { configRef } }: PayloadAction<SetConfig>): void => {
+    setConfig: (state: any, { payload: { configRef, id } }: PayloadAction<SetConfigType>): void => {
       state.configRef = configRef;
+      state.id = id
     }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchNewConfigRef.fulfilled, (state, action) => {
-      if (action?.payload?.configRef) {
+      if (action?.payload?.configRef && action?.payload?.id) {
         state.configRef = action.payload.configRef;
+        state.id = action.payload.id;
       }
     }
     );
   }
 })
-
-export const { setConfigRef: setConfigAction } = configSlice.actions;
 
 export default configSlice

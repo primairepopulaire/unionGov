@@ -19,7 +19,15 @@ export type ApiGovernement = {
 
 export type ApiConfig = {
   configRef: string;
+  id: number;
 };
 
+export type newGovernmentType = {
+  config_ref: number;
+  position: number;
+  candidate: number;
+};
+
+export type ApiNewGovernment = newGovernmentType[];
 
 /* eslint-disable camelcase */
