@@ -1,4 +1,4 @@
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Dialog, DialogTitle } from '@material-ui/core';
 import { CSSProperties, FunctionComponent, memo } from 'react';
 import theme from '../../theme';
 
@@ -7,6 +7,10 @@ export type Props = {
   /** The number of positions still waiting for a user-candidate */
   missingPositionCount?: number;
   onShare: () => void;
+  isOpen : boolean;
+  setIsOpen: any;
+  shareLink: string;
+  onCopy: () => void;
 }
 
 type Styles = {
@@ -32,7 +36,7 @@ const styles: Styles = {
 };
 
 const ShareButton: FunctionComponent<Props> = memo(
-  ({ isDisabled = false, missingPositionCount, onShare }) => (
+  ({ isDisabled = false, missingPositionCount, onShare, isOpen, setIsOpen, shareLink, onCopy }) => (
     <div className="container">
       <div className="row mx-4">
         <Button
@@ -57,6 +61,15 @@ const ShareButton: FunctionComponent<Props> = memo(
           Encore {missingPositionCount} poste(s) à attribuer !
         </Typography>
       </div>}
+      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+        <DialogTitle>Envoies ce lien à tes amis pour partager ton gouvernement idéal!</DialogTitle>
+        <Typography className="flex-fill text-center align-items-center justify-content-center d-flex" color="secondary">
+          {shareLink}
+        </Typography>
+        <Button style={{ margin: '0px 100px 20px 100px' }} variant="contained" color="primary" onClick={onCopy}>
+          Copier le lien
+        </Button>
+      </Dialog>
     </div>
   )
 );

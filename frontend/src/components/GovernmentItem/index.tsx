@@ -55,7 +55,7 @@ const GovernmentItem: FunctionComponent<Props> = memo(
         <CandidateSelect {...props} />
       </div>
       {!!imageUrl && (
-        <img style={styles.image} src={imageUrl} alt={positionName} />
+        <img style={styles.image} src={imageUrl} alt={' '} />
       )}
       {!imageUrl && (
         <div className="d-flex align-items-center justify-content-end">
