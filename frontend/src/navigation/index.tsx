@@ -5,6 +5,7 @@ import { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import About from '../pages/About';
 import Candidates from '../pages/Candidates';
 import Government from '../pages/Government';
 import { EmptyRecord } from '../types';
@@ -17,6 +18,7 @@ function a11yProps (index: any) {
 }
 
 const TABS = [
+  { label: 'à propos', ...a11yProps(2), path: '/about' },
   { label: 'gouvernement', ...a11yProps(0), path: '/' },
   { label: 'personnalités', ...a11yProps(1), path: '/candidates' }
 ];
@@ -50,6 +52,9 @@ const Navigation: FunctionComponent<EmptyRecord> = () => (
         <Switch>
           <Route path="/candidates">
             <Candidates />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
           <Route path="/">
             <Government />
