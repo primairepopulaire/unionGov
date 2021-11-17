@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback } from 'react';
+import { FunctionComponent, useCallback, useState } from 'react';
 import Component from '../components/ShareButton';
 import { useAppSelector, useAppDispatch } from '../hooks/redux';
 import useMissingGovernmentPositionCount from '../hooks/use-missing-government-position-count';
@@ -20,29 +20,32 @@ const PRIMARY_LINK = 'http://localhost:9000/'
 const ShareButton: FunctionComponent<Props> = () => {
   const missingCount = useMissingGovernmentPositionCount();
   const dispatch = useAppDispatch()
-  const copyToClipboard = (text: string) => {
-    const textField = document.createElement('textarea')
-    textField.innerText = text
-    document.body.appendChild(textField)
-    textField.select()
-    document.execCommand('copy')
-    textField.remove()
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const [shareLink, setShareLink] = useState('')
   const config: ConfigState = useAppSelector(configSelector, shallowEqual);
   const governement: GovernmentState = useAppSelector(governmentSelector, shallowEqual)
   const { id } = config
   const handleShare = useCallback(() => {
+    setIsOpen(!isOpen)
     dispatch(setGovernmentById({ config, governement }))
     if (id) {
-      copyToClipboard(PRIMARY_LINK + id)
+      setShareLink(PRIMARY_LINK + id)
     }
-  }, [id, governement]);
+  }, [id, governement, isOpen]);
+
+  const onCopy = useCallback(() => {
+    navigator.clipboard.writeText(PRIMARY_LINK + id)
+  }, [id])
 
   return (
     <Component
-      isDisabled={false}
+      isDisabled={missingCount !== 0}
       missingPositionCount={missingCount}
       onShare={handleShare}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      shareLink={shareLink}
+      onCopy={onCopy}
     />
   );
 };
