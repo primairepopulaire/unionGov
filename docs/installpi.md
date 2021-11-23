@@ -22,10 +22,30 @@ sudo apt-get install git
 Voir [Installation de Docker et Docker compose sur RaspBerry PI](https://code4pi.fr/2020/09/docker-et-docker-compose-sur-raspberry-pi/)
 
 ## <a name="install"></a>Install
-1. Création du repo local
+1. Création du repo local de la branche de dev de cantenej
 ```
 mkdir pp
 cd pp
-git clone 
+git clone https://github.com/cantenej/unionGov
+```
+2. Remplir fichier env
+```
+SECRET_KEY=lkv1p'-s.~~S3%Sp.1tUW;ZN6wL"I_u:KLQ5/B3i5#=3OugXhqz.|\tId5|oRF"e
+DB_HOST=db
+DB_NAME=uniongov
+DB_USER=postgres
+DB_PASSWORD=M6OEKhQiG19lsysvNA3B
+DB_DIR=./data/db
+DB_PORT=5432
+```
+3. Lancer docker-compose
+```
+sudo docker-compose -f docker-compose.dev.yml build
+```
+Puis
+```
+sudo docker-compose -f docker-compose.dev.yml build
+```
 
 ## <a name="test"></a>Testing
+Se connecter avec un navigateur sur localhost:9000
