@@ -21,6 +21,8 @@ sudo apt-get install git
 4. Installation de docker compose
 Voir [Installation de Docker et Docker compose sur RaspBerry PI](https://code4pi.fr/2020/09/docker-et-docker-compose-sur-raspberry-pi/)
 
+Ou pour une base Ubuntu voir [Installation Docker sous Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
 ## <a name="install"></a>Install
 1. Création du repo local de la branche de dev de cantenej
 ```
