@@ -28,7 +28,7 @@ mkdir pp
 cd pp
 git clone https://github.com/cantenej/unionGov
 ```
-2. Remplir fichier env
+2. Remplir fichier .env
 ```
 SECRET_KEY=lkv1p'-s.~~S3%Sp.1tUW;ZN6wL"I_u:KLQ5/B3i5#=3OugXhqz.|\tId5|oRF"e
 DB_HOST=db
@@ -44,7 +44,7 @@ sudo docker-compose -f docker-compose.dev.yml build
 ```
 Puis
 ```
-sudo docker-compose -f docker-compose.dev.yml build
+sudo docker-compose -f docker-compose.dev.yml up
 ```
 
 ## <a name="test"></a>Testing
